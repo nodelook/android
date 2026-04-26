@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "ir.ammari.nodelook"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ir.ammari.nodelook"
         minSdk = 1
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "0.0.0"
 
