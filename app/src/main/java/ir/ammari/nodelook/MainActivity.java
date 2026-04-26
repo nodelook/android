@@ -50,6 +50,9 @@ public class MainActivity extends Activity {
         put("AbreHamrahi", "https://abrehamrahi.ir/o/public/vlwU5cXR");
         put("AbreHamrahi (ShortenerLink)", "https://abhm.ir/kpWgPj");
         put("JS-org", "https://pad.js.org/status");
+        put("Uupload (ShortenerLink)", "https://my.uupload.ir/dl/NdQ4K1BD");
+        put("Uupload", "https://s15.uupload.ir/files/xmha97/status.txt");
+        put("jsDelivr", "https://cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status");
 
         put("GitHub Gists (HTTP)", "http://gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status");
         put("GitHub Repository (HTTP)", "http://raw.githubusercontent.com/xmha97/test/refs/heads/main/status");
@@ -72,6 +75,9 @@ public class MainActivity extends Activity {
         put("AbreHamrahi (HTTP)", "http://abrehamrahi.ir/o/public/vlwU5cXR");
         put("AbreHamrahi (ShortenerLink) (HTTP)", "http://abhm.ir/kpWgPj");
         put("JS-org (HTTP)", "http://pad.js.org/status");
+        put("Uupload (ShortenerLink) (HTTP)", "http://my.uupload.ir/dl/NdQ4K1BD");
+        put("Uupload (HTTP)", "http://s15.uupload.ir/files/xmha97/status.txt");
+        put("jsDelivr (HTTP)", "http://cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status");
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull String name, @NonNull URL url) {
