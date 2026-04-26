@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rasad</string>
+    <string name="app_name">NodeLook</string>
     <string name="test">Test</string>
     <string name="ping">Ping</string>
 </resources>

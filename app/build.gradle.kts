@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "ir.ammari.rasad"
+    namespace = "ir.ammari.nodelook"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "ir.ammari.rasad"
+        applicationId = "ir.ammari.nodelook"
         minSdk = 1
         targetSdk = 36
         versionCode = 1

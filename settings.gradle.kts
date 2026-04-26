@@ -16,6 +16,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Rasad"
+rootProject.name = "NodeLook"
 include(":app")
  
