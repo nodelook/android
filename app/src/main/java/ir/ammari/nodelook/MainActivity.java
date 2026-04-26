@@ -25,10 +25,11 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainActivity extends Activity {
-    private static final Map<String, String> sites = new HashMap<>() {{
+    private static final Map<String, String> sites = new LinkedHashMap<>() {{
         put("GitHub Gists", "https://gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status");
         put("GitHub Repository", "https://raw.githubusercontent.com/xmha97/test/refs/heads/main/status");
         put("GitHub Releases", "https://github.com/xmha97/test/releases/download/v1.0.0/status");
