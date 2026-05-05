@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
         put("Wikipedia (Persian)", "https://fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript");
         put("Wikipedia (Arabic)", "https://ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript");
         put("HamGit (GitLab)", "https://hamgit.ir/xmha97/test/-/raw/main/status");
+        put("AranServer (GitLab)", "https://gitlab.aranserver.com/xmha97/test/-/raw/main/status");
         put("Rokhsara (Gitea)", "https://git.rokhsara.com/xmha97/test/raw/branch/main/status");
         put("Fandak (Gitea)", "https://gitea.fandak.lol/xmha97/test/raw/branch/main/status");
         put("Mred (Gitea)", "https://git.mred.ir/xmha97/test/raw/branch/main/status");
@@ -80,6 +81,7 @@ public class MainActivity extends Activity {
         put("Wikipedia (Persian) (HTTP)", "http://fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript");
         put("Wikipedia (Arabic) (HTTP)", "http://ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript");
         put("HamGit (GitLab) (HTTP)", "http://hamgit.ir/xmha97/test/-/raw/main/status");
+        put("AranServer (GitLab) (HTTP)", "http://gitlab.aranserver.com/xmha97/test/-/raw/main/status");
         put("Rokhsara (Gitea) (HTTP)", "http://git.rokhsara.com/xmha97/test/raw/branch/main/status");
         put("Fandak (Gitea) (HTTP)", "http://gitea.fandak.lol/xmha97/test/raw/branch/main/status");
         put("Mred (Gitea) (HTTP)", "http://git.mred.ir/xmha97/test/raw/branch/main/status");
