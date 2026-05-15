@@ -85,7 +85,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("Zarebin", "zarebin.ir/search?q=thezarebinsiteisworkingproperly", "thezarebinsiteisworkingproperly"));
-        add(new SiteInfo("Bale", "ble.ir/thebalesiteisworkingproperly", "thebalesiteisworkingproperly"));
         add(new SiteInfo("Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
     }};
 
