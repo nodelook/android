@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
                 final var read = reader.read(buffer);
                 final var response = new String(buffer, 0, Math.max(read, 0));
                 if (read == expected.length()) {
-                    if (response.trim().equals(expected.trim())) {
+                    if (response.trim().contains(expected.trim())) {
                         result = "success";
                     } else {
                         result = "Unexpected response: " + response;
