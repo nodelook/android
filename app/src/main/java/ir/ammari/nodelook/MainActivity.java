@@ -83,21 +83,43 @@ public class MainActivity extends Activity {
         add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "{\"status\":200}"));
     }};
 
-    private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull String name, @NonNull URL url) {
+    private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
         new Thread(() -> {
+    
             var result = "Invalid result";
-            try (final var inputStream = url.openStream()) {
-                if (inputStream.read() == '2' && inputStream.read() == '0' && inputStream.read() == '0')
-                    result = "success";
+    
+            try (final var inputStream = new URL("https://" + site.url).openStream();
+                 final var reader = new InputStreamReader(inputStream)) {
+    
+                final var expected = site.status;
+                final var buffer = new char[expected.length()];
+    
+                final var read = reader.read(buffer);
+    
+                if (read == expected.length()) {
+                    final var response = new String(buffer);
+    
+                    if (response.equals(expected)) {
+                        result = "success";
+                    } else {
+                        result = "Unexpected response";
+                    }
+                } else {
+                    result = "Incomplete response";
+                }
+    
             } catch (IOException e) {
                 result = e.getMessage();
                 e.printStackTrace();
             }
+    
             final var finalResult = result;
+    
             runOnUiThread(() -> {
-                status.put(name, finalResult);
+                status.put(site.name, finalResult);
                 displayResult(status, textView);
             });
+    
         }).start();
     }
 
@@ -195,16 +217,7 @@ public class MainActivity extends Activity {
         displayResult(status, textView);
     
         for (final var site : sites) {
-            try {
-                testURL(
-                        status,
-                        textView,
-                        site.name,
-                        new URL("https://" + site.url)
-                );
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
+            testURL(status, textView, site);
         }
     }
 }
