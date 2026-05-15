@@ -102,8 +102,8 @@ public class MainActivity extends Activity {
 
     private void displayResult(Map<String, String> status, @NonNull TextView textView) {
         final var text = new SpannableStringBuilder();
-        for (final var entry : sites.entrySet()) {
-            final var key = entry.getKey();
+        for (final var site : sites) {
+            final var key = site.name;
             text.append(key);
             if (status.containsKey(key)) {
                 text.append(" - ");
@@ -114,8 +114,10 @@ public class MainActivity extends Activity {
                 final var spannable = new SpannableString(result);
                 spannable.setSpan(color, 0, result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 text.append(spannable);
-                text.append("\n");
-            } else text.append("…\n");
+            } else {
+                text.append("…");
+            }
+            text.append("\n");
         }
         textView.setText(text);
     }
