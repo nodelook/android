@@ -82,6 +82,11 @@ public class MainActivity extends Activity {
         add(new SiteInfo("ArvanStorage (Tabriz)", "xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200"));
         add(new SiteInfo("ArvanStorage (Tabriz WebSite)", "xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200"));
         add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "200"));
+        add(new SiteInfo("Google Translate", "https://translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
+        add(new SiteInfo("Google Search", "https://google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
+        add(new SiteInfo("Zarebin", "https://zarebin.ir/search?q=thezarebinsiteisworkingproperly", "thezarebinsiteisworkingproperly"));
+        add(new SiteInfo("Bale", "https://ble.ir/thebalesiteisworkingproperly", "thebalesiteisworkingproperly"));
+        add(new SiteInfo("Telegram", "https://t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
