@@ -190,10 +190,17 @@ public class MainActivity extends Activity {
 
     private void testAll(TextView textView) {
         final var status = new HashMap<String, String>();
+    
         displayResult(status, textView);
-        for (final var entry : sites.entrySet()) {
+    
+        for (final var site : sites) {
             try {
-                testURL(status, textView, entry.getKey(), new URL(entry.getValue()));
+                testURL(
+                        status,
+                        textView,
+                        site.name,
+                        new URL("https://" + site.url)
+                );
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }
