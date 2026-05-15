@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
                 final var read = reader.read(buffer);
                 final var response = new String(buffer, 0, Math.max(read, 0));
                 if (read == expected.length()) {
-                    if (response.trim().contains(expected.trim())) {
+                    if (response.replaceAll("[\\n\\r\\t .]", "").contains(expected.replaceAll("[\\n\\r\\t .]", ""))) {
                         result = "success";
                     } else {
                         result = "Unexpected response: " + response;
