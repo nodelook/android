@@ -85,20 +85,14 @@ public class MainActivity extends Activity {
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
         new Thread(() -> {
-    
             var result = "Invalid result";
-    
             try (final var inputStream = new URL("https://" + site.url).openStream();
                  final var reader = new InputStreamReader(inputStream)) {
-    
                 final var expected = site.status;
                 final var buffer = new char[expected.length()];
-    
                 final var read = reader.read(buffer);
-    
+                final var response = new String(buffer, 0, Math.max(read, 0));
                 if (read == expected.length()) {
-                    final var response = new String(buffer);
-    
                     if (response.equals(expected)) {
                         result = "success";
                     } else {
@@ -107,19 +101,15 @@ public class MainActivity extends Activity {
                 } else {
                     result = "Incomplete response: " + response;
                 }
-    
             } catch (IOException e) {
                 result = e.getMessage();
                 e.printStackTrace();
             }
-    
             final var finalResult = result;
-    
             runOnUiThread(() -> {
                 status.put(site.name, finalResult);
                 displayResult(status, textView);
             });
-    
         }).start();
     }
 
