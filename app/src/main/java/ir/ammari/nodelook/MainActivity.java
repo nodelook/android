@@ -28,83 +28,58 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+class SiteInfo {
+    String name;
+    String url;
+    String status;
+
+    SiteInfo(String name, String url, String status) {
+        this.name = name;
+        this.url = url;
+        this.status = status;
+    }
+}
+
 public class MainActivity extends Activity {
-    private static final Map<String, String> sites = new LinkedHashMap<>() {{
-        put("GitHub Gists", "https://gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200");
-        put("GitHub Repository", "https://raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200");
-        put("GitHub Releases", "https://github.com/xmha97/test/releases/download/v1.0.0/status", "200");
-        put("GitHub Pages", "https://xmha97.github.io/status", "200");
-        put("Codeberg Repository", "https://codeberg.org/xmha97/test/raw/branch/main/status", "200");
-        put("Codeberg Releases", "https://codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200");
-        put("GitLab", "https://gitlab.com/xmha97/test/-/raw/master/status", "200");
-        put("DropBox", "https://www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200");
-        put("Archive", "https://archive.org/download/xmha97/status", "200");
-        put("Archive (Tor)", "https://archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/download/xmha97/status", "200");
-        put("Pastebin", "https://pastebin.com/raw/ER5BRSx7", "200");
-        put("Wikipedia (English)", "https://en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("Wikipedia (Persian)", "https://fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("Wikipedia (Arabic)", "https://ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("HamGit (GitLab)", "https://hamgit.ir/xmha97/test/-/raw/main/status", "200");
-        put("AranServer (GitLab)", "https://gitlab.aranserver.com/xmha97/test/-/raw/main/status", "200");
-        put("Rokhsara (Gitea)", "https://git.rokhsara.com/xmha97/test/raw/branch/main/status", "200");
-        put("Fandak (Gitea)", "https://gitea.fandak.lol/xmha97/test/raw/branch/main/status", "200");
-        put("Mred (Gitea)", "https://git.mred.ir/xmha97/test/raw/branch/main/status", "200");
-        put("Paragraph (Forgejo)", "https://git.prgph.fun/xmha97/test/raw/branch/main/status", "200");
-        put("AbreHamrahi", "https://abrehamrahi.ir/o/public/vlwU5cXR", "200");
-        put("AbreHamrahi (ShortenerLink)", "https://abhm.ir/kpWgPj", "200");
-        put("JS-org", "https://pad.js.org/status", "200");
-        put("Uupload (ShortenerLink)", "https://my.uupload.ir/dl/NdQ4K1BD", "200");
-        put("Uupload", "https://s15.uupload.ir/files/xmha97/status.txt", "200");
-        put("jsDelivr", "https://cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200");
-        put("TEROZA", "https://trzw.ir/up/loads/status.txt", "200");
-        put("Liara", "https://obd.storage.c2.liara.space/status?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=6b96162b-d379-44a7-ae3f-e3cd178bbf19%2F20260429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260429T040002Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=064a1ef82adc6efe0918f74c909742770da989d9b90a348ec345d52fd0871e77", "200");
-        put("ArvanStorage (Tehran-Standard DotOne)", "https://test-hive.s3.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-Standard)", "https://xmh.s3.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-Standard WebSite)", "https://xmh.s3-website.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-HiOps)", "https://xmh.hot.ir-central1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-HiOps WebSite)", "https://xmh.hot-website.ir-central1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tabriz)", "https://xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tabriz WebSite)", "https://xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200");
-        put("GitHub API", "https://api.github.com/octocat?s=200", "\n               MMM.           .MMM\n               MMMMMMMMMMMMMMMMMMM\n               MMMMMMMMMMMMMMMMMMM      _____\n              MMMMMMMMMMMMMMMMMMMMM    |     |\n             MMMMMMMMMMMMMMMMMMMMMMM   | 200 |\n            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _|\n            MMMM::- -:::::::- -::MMMM    |/\n             MM~:~ 00~:::::~ 00~:~MM\n        .. MMMMM::.00:::+:::.00::MMMMM ..\n              .MM::::: ._. :::::MM.\n                 MMMM;:::::;MMMM\n          -MM        MMMMMMM\n          ^  M+     MMMMMMMMM\n              MMMMMMM MM MM MM\n                   MM MM MM MM\n                   MM MM MM MM\n                .~~MM~MM~MM~MM~~.\n             ~~~~MM:~MM~~~MM~:MM~~~~\n            ~~~~~~==~==~~~==~==~~~~~~\n             ~~~~~~==~==~==~==~~~~~~\n                 :~==~==~==~==~~\n");
-        put("Postman Echo", "https://postman-echo.com/status/200", "{\"status\":200}");
-        
-        put("GitHub Gists (HTTP)", "http://gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200");
-        put("GitHub Repository (HTTP)", "http://raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200");
-        put("GitHub Releases (HTTP)", "http://github.com/xmha97/test/releases/download/v1.0.0/status", "200");
-        put("GitHub Pages (HTTP)", "http://xmha97.github.io/status", "200");
-        put("Codeberg Repository (HTTP)", "http://codeberg.org/xmha97/test/raw/branch/main/status", "200");
-        put("Codeberg Releases (HTTP)", "http://codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200");
-        put("GitLab (HTTP)", "http://gitlab.com/xmha97/test/-/raw/master/status", "200");
-        put("DropBox (HTTP)", "http://www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200");
-        put("Archive (HTTP)", "http://archive.org/download/xmha97/status", "200");
-        put("Archive (Tor) (HTTP)", "http://archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/download/xmha97/status", "200");
-        put("Pastebin (HTTP)", "http://pastebin.com/raw/ER5BRSx7", "200");
-        put("Wikipedia (English) (HTTP)", "http://en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("Wikipedia (Persian) (HTTP)", "http://fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("Wikipedia (Arabic) (HTTP)", "http://ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200");
-        put("HamGit (GitLab) (HTTP)", "http://hamgit.ir/xmha97/test/-/raw/main/status", "200");
-        put("AranServer (GitLab) (HTTP)", "http://gitlab.aranserver.com/xmha97/test/-/raw/main/status", "200");
-        put("Rokhsara (Gitea) (HTTP)", "http://git.rokhsara.com/xmha97/test/raw/branch/main/status", "200");
-        put("Fandak (Gitea) (HTTP)", "http://gitea.fandak.lol/xmha97/test/raw/branch/main/status", "200");
-        put("Mred (Gitea) (HTTP)", "http://git.mred.ir/xmha97/test/raw/branch/main/status", "200");
-        put("Paragraph (Forgejo) (HTTP)", "http://git.prgph.fun/xmha97/test/raw/branch/main/status", "200");
-        put("AbreHamrahi (HTTP)", "http://abrehamrahi.ir/o/public/vlwU5cXR", "200");
-        put("AbreHamrahi (ShortenerLink) (HTTP)", "http://abhm.ir/kpWgPj", "200");
-        put("JS-org (HTTP)", "http://pad.js.org/status", "200");
-        put("Uupload (ShortenerLink) (HTTP)", "http://my.uupload.ir/dl/NdQ4K1BD", "200");
-        put("Uupload (HTTP)", "http://s15.uupload.ir/files/xmha97/status.txt", "200");
-        put("jsDelivr (HTTP)", "http://cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200");
-        put("TEROZA (HTTP)", "http://trzw.ir/up/loads/status.txt", "200");
-        put("Liara (HTTP)", "http://obd.storage.c2.liara.space/status?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=6b96162b-d379-44a7-ae3f-e3cd178bbf19%2F20260429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260429T040002Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=064a1ef82adc6efe0918f74c909742770da989d9b90a348ec345d52fd0871e77", "200");
-        put("ArvanStorage (Tehran-Standard DotOne) (HTTP)", "http://test-hive.s3.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-Standard) (HTTP)", "http://xmh.s3.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-Standard WebSite) (HTTP)", "http://xmh.s3-website.ir-thr-at1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-HiOps) (HTTP)", "http://xmh.hot.ir-central1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tehran-HiOps WebSite) (HTTP)", "http://xmh.hot-website.ir-central1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tabriz) (HTTP)", "http://xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200");
-        put("ArvanStorage (Tabriz WebSite) (HTTP)", "http://xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200");
-        put("GitHub API (HTTP)", "http://api.github.com/octocat?s=200", "\n               MMM.           .MMM\n               MMMMMMMMMMMMMMMMMMM\n               MMMMMMMMMMMMMMMMMMM      _____\n              MMMMMMMMMMMMMMMMMMMMM    |     |\n             MMMMMMMMMMMMMMMMMMMMMMM   | 200 |\n            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _|\n            MMMM::- -:::::::- -::MMMM    |/\n             MM~:~ 00~:::::~ 00~:~MM\n        .. MMMMM::.00:::+:::.00::MMMMM ..\n              .MM::::: ._. :::::MM.\n                 MMMM;:::::;MMMM\n          -MM        MMMMMMM\n          ^  M+     MMMMMMMMM\n              MMMMMMM MM MM MM\n                   MM MM MM MM\n                   MM MM MM MM\n                .~~MM~MM~MM~MM~~.\n             ~~~~MM:~MM~~~MM~:MM~~~~\n            ~~~~~~==~==~~~==~==~~~~~~\n             ~~~~~~==~==~==~==~~~~~~\n                 :~==~==~==~==~~\n");
-        put("Postman Echo (HTTP)", "http://postman-echo.com/status/200", "{\"status\":200}");
+    private static final List<SiteInfo> sites = new ArrayList<>() {{
+        add(new SiteInfo("GitHub Pages", "xmha97.github.io/status", "200"));
+        add(new SiteInfo("GitHub Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
+        add(new SiteInfo("GitHub Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
+        add(new SiteInfo("GitHub Releases", "github.com/xmha97/test/releases/download/v1.0.0/status", "200"));
+        add(new SiteInfo("GitHub Pages", "xmha97.github.io/status", "200"));
+        add(new SiteInfo("Codeberg Repository", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("Codeberg Releases", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
+        add(new SiteInfo("GitLab", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
+        add(new SiteInfo("DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
+        add(new SiteInfo("Archive", "archive.org/download/xmha97/status", "200"));
+        add(new SiteInfo("Archive (Tor)", "archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/download/xmha97/status", "200"));
+        add(new SiteInfo("Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
+        add(new SiteInfo("Wikipedia (English)", "en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
+        add(new SiteInfo("Wikipedia (Persian)", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
+        add(new SiteInfo("Wikipedia (Arabic)", "ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
+        add(new SiteInfo("HamGit (GitLab)", "hamgit.ir/xmha97/test/-/raw/main/status", "200"));
+        add(new SiteInfo("AranServer (GitLab)", "gitlab.aranserver.com/xmha97/test/-/raw/main/status", "200"));
+        add(new SiteInfo("Rokhsara (Gitea)", "git.rokhsara.com/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("Fandak (Gitea)", "gitea.fandak.lol/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("Mred (Gitea)", "git.mred.ir/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("Paragraph (Forgejo)", "git.prgph.fun/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("AbreHamrahi", "abrehamrahi.ir/o/public/vlwU5cXR", "200"));
+        add(new SiteInfo("AbreHamrahi (ShortenerLink)", "abhm.ir/kpWgPj", "200"));
+        add(new SiteInfo("JS-org", "pad.js.org/status", "200"));
+        add(new SiteInfo("Uupload (ShortenerLink)", "my.uupload.ir/dl/NdQ4K1BD", "200"));
+        add(new SiteInfo("Uupload", "s15.uupload.ir/files/xmha97/status.txt", "200"));
+        add(new SiteInfo("jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
+        add(new SiteInfo("TEROZA", "trzw.ir/up/loads/status.txt", "200"));
+        add(new SiteInfo("Liara", "obd.storage.c2.liara.space/status?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=6b96162b-d379-44a7-ae3f-e3cd178bbf19%2F20260429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260429T040002Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=064a1ef82adc6efe0918f74c909742770da989d9b90a348ec345d52fd0871e77", "200"));
+        add(new SiteInfo("ArvanStorage (Tehran-Standard DotOne)", "test-hive.s3.ir-thr-at1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tehran-Standard)", "xmh.s3.ir-thr-at1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tehran-Standard WebSite)", "xmh.s3-website.ir-thr-at1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tehran-HiOps)", "xmh.hot.ir-central1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tehran-HiOps WebSite)", "xmh.hot-website.ir-central1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tabriz)", "xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("ArvanStorage (Tabriz WebSite)", "xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200"));
+        add(new SiteInfo("GitHub API", "api.github.com/octocat?s=200", "\n               MMM.           .MMM\n               MMMMMMMMMMMMMMMMMMM\n               MMMMMMMMMMMMMMMMMMM      _____\n              MMMMMMMMMMMMMMMMMMMMM    |     |\n             MMMMMMMMMMMMMMMMMMMMMMM   | 200 |\n            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _|\n            MMMM::- -:::::::- -::MMMM    |/\n             MM~:~ 00~:::::~ 00~:~MM\n        .. MMMMM::.00:::+:::.00::MMMMM ..\n              .MM::::: ._. :::::MM.\n                 MMMM;:::::;MMMM\n          -MM        MMMMMMM\n          ^  M+     MMMMMMMMM\n              MMMMMMM MM MM MM\n                   MM MM MM MM\n                   MM MM MM MM\n                .~~MM~MM~MM~MM~~.\n             ~~~~MM:~MM~~~MM~:MM~~~~\n            ~~~~~~==~==~~~==~==~~~~~~\n             ~~~~~~==~==~==~==~~~~~~\n                 :~==~==~==~==~~\n"));
+        add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "{\"status\":200}"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull String name, @NonNull URL url) {
