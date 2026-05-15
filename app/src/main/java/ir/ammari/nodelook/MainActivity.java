@@ -43,6 +43,8 @@ class SiteInfo {
 
 public class MainActivity extends Activity {
     private static final List<SiteInfo> sites = new ArrayList<>() {{
+        add(new SiteInfo("GitHub Site", "github.com/xmha97/test/blob/main/test", "thegithubsiteisworkingproperly"));
+        add(new SiteInfo("GitHub API", "api.github.com/octocat?s=200", "200"));
         add(new SiteInfo("GitHub Pages", "xmha97.github.io/status", "200"));
         add(new SiteInfo("GitHub Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
         add(new SiteInfo("GitHub Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
@@ -79,8 +81,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("ArvanStorage (Tehran-HiOps WebSite)", "xmh.hot-website.ir-central1.arvanstorage.ir/status", "200"));
         add(new SiteInfo("ArvanStorage (Tabriz)", "xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200"));
         add(new SiteInfo("ArvanStorage (Tabriz WebSite)", "xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("GitHub API", "api.github.com/octocat?s=200", "\n               MMM.           .MMM\n               MMMMMMMMMMMMMMMMMMM\n               MMMMMMMMMMMMMMMMMMM      _____\n              MMMMMMMMMMMMMMMMMMMMM    |     |\n             MMMMMMMMMMMMMMMMMMMMMMM   | 200 |\n            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _|\n            MMMM::- -:::::::- -::MMMM    |/\n             MM~:~ 00~:::::~ 00~:~MM\n        .. MMMMM::.00:::+:::.00::MMMMM ..\n              .MM::::: ._. :::::MM.\n                 MMMM;:::::;MMMM\n          -MM        MMMMMMM\n          ^  M+     MMMMMMMMM\n              MMMMMMM MM MM MM\n                   MM MM MM MM\n                   MM MM MM MM\n                .~~MM~MM~MM~MM~~.\n             ~~~~MM:~MM~~~MM~:MM~~~~\n            ~~~~~~==~==~~~==~==~~~~~~\n             ~~~~~~==~==~==~==~~~~~~\n                 :~==~==~==~==~~\n"));
-        add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "{\"status\":200}"));
+        add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "200"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
