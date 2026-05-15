@@ -65,6 +65,8 @@ public class MainActivity extends Activity {
         put("ArvanStorage (Tehran-HiOps WebSite)", "https://xmh.hot-website.ir-central1.arvanstorage.ir/status");
         put("ArvanStorage (Tabriz)", "https://xmh.s3.ir-tbz-sh1.arvanstorage.ir/status");
         put("ArvanStorage (Tabriz WebSite)", "https://xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status");
+        put("GitHub API", "https://api.github.com/octocat?s=200");
+        put("Postman", "https://postman-echo.com/status/200");
         
         put("GitHub Gists (HTTP)", "http://gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status");
         put("GitHub Repository (HTTP)", "http://raw.githubusercontent.com/xmha97/test/refs/heads/main/status");
@@ -85,7 +87,7 @@ public class MainActivity extends Activity {
         put("Rokhsara (Gitea) (HTTP)", "http://git.rokhsara.com/xmha97/test/raw/branch/main/status");
         put("Fandak (Gitea) (HTTP)", "http://gitea.fandak.lol/xmha97/test/raw/branch/main/status");
         put("Mred (Gitea) (HTTP)", "http://git.mred.ir/xmha97/test/raw/branch/main/status");
-        put("Paragraph (Forgejo) (HTTP)", "https://git.prgph.fun/xmha97/test/raw/branch/main/status");
+        put("Paragraph (Forgejo) (HTTP)", "http://git.prgph.fun/xmha97/test/raw/branch/main/status");
         put("AbreHamrahi (HTTP)", "http://abrehamrahi.ir/o/public/vlwU5cXR");
         put("AbreHamrahi (ShortenerLink) (HTTP)", "http://abhm.ir/kpWgPj");
         put("JS-org (HTTP)", "http://pad.js.org/status");
@@ -101,6 +103,8 @@ public class MainActivity extends Activity {
         put("ArvanStorage (Tehran-HiOps WebSite) (HTTP)", "http://xmh.hot-website.ir-central1.arvanstorage.ir/status");
         put("ArvanStorage (Tabriz) (HTTP)", "http://xmh.s3.ir-tbz-sh1.arvanstorage.ir/status");
         put("ArvanStorage (Tabriz WebSite) (HTTP)", "http://xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status");
+        put("GitHub API", "http://api.github.com/octocat?s=200");
+        put("Postman", "http://postman-echo.com/status/200");
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull String name, @NonNull URL url) {
