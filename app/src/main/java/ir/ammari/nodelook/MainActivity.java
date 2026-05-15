@@ -88,19 +88,22 @@ public class MainActivity extends Activity {
         new Thread(() -> {
             var result = "Invalid result";
             try (final var inputStream = new URL("https://" + site.url).openStream();
-                 final var reader = new InputStreamReader(inputStream)) {
+                 final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
                 final var expected = site.status;
-                final var buffer = new char[expected.length()];
-                final var read = reader.read(buffer);
-                final var response = new String(buffer, 0, Math.max(read, 0));
-                if (read == expected.length()) {
-                    if (response.replaceAll("[\\n\\r\\t .]", "").contains(expected.replaceAll("[\\n\\r\\t .]", ""))) {
-                        result = "success";
-                    } else {
-                        result = "Unexpected response: " + response;
-                    }
+                final var responseBuilder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    responseBuilder.append(line);
+                }
+                final var response = responseBuilder.toString();
+                final var cleanResponse =
+                        response.replaceAll("[\\n\\r\\t .]", "");
+                final var cleanExpected =
+                        expected.replaceAll("[\\n\\r\\t .]", "");
+                if (cleanResponse.contains(cleanExpected)) {
+                    result = "success";
                 } else {
-                    result = "Incomplete response: " + response;
+                    result = "Unexpected response: " + response;
                 }
             } catch (IOException e) {
                 result = e.getMessage();
