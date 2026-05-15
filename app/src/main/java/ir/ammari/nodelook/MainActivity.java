@@ -102,10 +102,10 @@ public class MainActivity extends Activity {
                     if (response.equals(expected)) {
                         result = "success";
                     } else {
-                        result = "Unexpected response";
+                        result = "Unexpected response: " + response;
                     }
                 } else {
-                    result = "Incomplete response";
+                    result = "Incomplete response: " + response;
                 }
     
             } catch (IOException e) {
