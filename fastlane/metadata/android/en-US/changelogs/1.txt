@@ -1,0 +1,3 @@
+* Initial public release of NodeLook
+* Check accessibility of popular websites and online services
+* Measure ping and network response time

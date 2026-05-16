@@ -1,0 +1,7 @@
+NodeLook is an Android application designed to evaluate and monitor access to major online services and platforms from within Iran. The app checks the availability and accessibility of popular websites and services such as Google, GitHub, Telegram, and other globally used platforms.
+
+The primary purpose of NodeLook is to provide users with a transparent and practical overview of internet accessibility conditions in Iran, where network restrictions and access limitations may vary significantly between users, networks, internet providers, and regions. Due to the existence of differentiated or restricted internet access policies, not all users experience the same level of connectivity to international services.
+
+NodeLook helps users quickly determine whether specific services are reachable from their current network environment. By presenting clear and direct connectivity results, the application can assist in identifying access limitations, service blocking, network instability, or provider-specific restrictions.
+
+The application is built with a focus on simplicity, reliability, and real-world usability, aiming to offer an accessible diagnostic tool for everyday internet users, developers, researchers, and anyone interested in understanding the current state of internet accessibility.
