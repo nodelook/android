@@ -44,7 +44,7 @@ class SiteInfo {
 public class MainActivity extends Activity {
     private static final List<SiteInfo> sites = new ArrayList<>() {{
         add(new SiteInfo("GitHub Site", "github.com/xmha97/test/blob/main/test", "thegithubsiteisworkingproperly"));
-        add(new SiteInfo("GitHub API", "api.github.com/octocat?s=200", "200"));
+        add(new SiteInfo("GitHub API", "api.github.com/octocat?s=thegithubapiisworkingproperly", "thegithubapiisworkingproperly"));
         add(new SiteInfo("GitHub Pages", "xmha97.github.io/status", "200"));
         add(new SiteInfo("GitHub Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
         add(new SiteInfo("GitHub Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
@@ -55,37 +55,16 @@ public class MainActivity extends Activity {
         add(new SiteInfo("GitLab", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
         add(new SiteInfo("DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
         add(new SiteInfo("Archive", "archive.org/download/xmha97/status", "200"));
-        add(new SiteInfo("Archive (Tor)", "archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/download/xmha97/status", "200"));
         add(new SiteInfo("Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
         add(new SiteInfo("Wikipedia (English)", "en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
-        add(new SiteInfo("Wikipedia (Persian)", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("Wikipedia (Arabic)", "ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
-        add(new SiteInfo("HamGit (GitLab)", "hamgit.ir/xmha97/test/-/raw/main/status", "200"));
-        add(new SiteInfo("AranServer (GitLab)", "gitlab.aranserver.com/xmha97/test/-/raw/main/status", "200"));
-        add(new SiteInfo("Rokhsara (Gitea)", "git.rokhsara.com/xmha97/test/raw/branch/main/status", "200"));
-        add(new SiteInfo("Fandak (Gitea)", "gitea.fandak.lol/xmha97/test/raw/branch/main/status", "200"));
-        add(new SiteInfo("Mred (Gitea)", "git.mred.ir/xmha97/test/raw/branch/main/status", "200"));
-        add(new SiteInfo("Paragraph (Forgejo)", "git.prgph.fun/xmha97/test/raw/branch/main/status", "200"));
-        add(new SiteInfo("AbreHamrahi", "abrehamrahi.ir/o/public/vlwU5cXR", "200"));
-        add(new SiteInfo("AbreHamrahi (ShortenerLink)", "abhm.ir/kpWgPj", "200"));
-        add(new SiteInfo("JS-org", "pad.js.org/status", "200"));
-        add(new SiteInfo("Uupload (ShortenerLink)", "my.uupload.ir/dl/NdQ4K1BD", "200"));
-        add(new SiteInfo("Uupload", "s15.uupload.ir/files/xmha97/status.txt", "200"));
-        add(new SiteInfo("jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
-        add(new SiteInfo("TEROZA", "trzw.ir/up/loads/status.txt", "200"));
-        add(new SiteInfo("Liara", "obd.storage.c2.liara.space/status?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=6b96162b-d379-44a7-ae3f-e3cd178bbf19%2F20260429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260429T040002Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=064a1ef82adc6efe0918f74c909742770da989d9b90a348ec345d52fd0871e77", "200"));
-        add(new SiteInfo("ArvanStorage (Tehran-Standard DotOne)", "test-hive.s3.ir-thr-at1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tehran-Standard)", "xmh.s3.ir-thr-at1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tehran-Standard WebSite)", "xmh.s3-website.ir-thr-at1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tehran-HiOps)", "xmh.hot.ir-central1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tehran-HiOps WebSite)", "xmh.hot-website.ir-central1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tabriz)", "xmh.s3.ir-tbz-sh1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("ArvanStorage (Tabriz WebSite)", "xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status", "200"));
-        add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "200"));
-        add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
-        add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
-        add(new SiteInfo("Zarebin", "zarebin.ir/search?q=thezarebinsiteisworkingproperly", "thezarebinsiteisworkingproperly"));
+        add(new SiteInfo("Wikipedia (Persian)", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
+        add(new SiteInfo("JS-org", "pad.js.org/status", "200"));
+        add(new SiteInfo("jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
+        add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "200"));
+        add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
+        add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
