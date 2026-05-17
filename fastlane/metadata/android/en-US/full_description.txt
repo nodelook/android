@@ -1,1 +1,11 @@
-NodeLook is an Android app that monitors access to major online services like Google, GitHub, and Telegram from within Iran, helping users quickly check whether these services are reachable on their current network and identify possible blocking, instability, or provider-related restrictions.
+NodeLook is a lightweight application for checking access to websites and online services across different internet networks. It helps users determine whether a service is reachable, restricted, or unavailable through their current connection, making it useful for monitoring internet restrictions and comparing accessibility across regions and networks.
+
+The app can check services such as:
+- Telegram — China, Russia, Turkmenistan, Pakistan, Iran
+- Wikipedia — China, Turkey, Myanmar, Pakistan, Iran
+- Internet Archive — China, Russia, Iran
+- Dropbox — China, Iran
+- GitHub — China, Iran
+- Google — China, Iran
+
+This application may be useful for users in these countries and other regions where internet restrictions exist.

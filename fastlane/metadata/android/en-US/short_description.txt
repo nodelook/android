@@ -1,1 +1,1 @@
-NodeLook checks website and online service access across Iran networks.
+A website checker for users facing internet restrictions
