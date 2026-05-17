@@ -1,11 +1,10 @@
-NodeLook is a lightweight application for checking access to websites and online services across different internet networks. It helps users determine whether a service is reachable, restricted, or unavailable through their current connection, making it useful for monitoring internet restrictions and comparing accessibility across regions and networks.
+NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
-The app can check services such as:
-- Telegram — China, Russia, Turkmenistan, Pakistan, Iran
-- Wikipedia — China, Turkey, Myanmar, Pakistan, Iran
-- Internet Archive — China, Russia, Iran
-- Dropbox — China, Iran
-- GitHub — China, Iran
-- Google — China, Iran
+Some of the services this app checks, and it may be useful for users in countries where internet restrictions exist, include:
 
-This application may be useful for users in these countries and other regions where internet restrictions exist.
+* Telegram — China, Russia, Turkmenistan, Pakistan, Iran
+* Wikipedia — China, Turkey, Myanmar, Pakistan, Iran
+* Internet Archive — China, Russia, Iran
+* Dropbox — China, Iran
+* GitHub — China, Iran
+* Google — China, Iran

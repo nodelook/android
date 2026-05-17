@@ -1,1 +1,1 @@
-A website checker for users facing internet restrictions
+A general website checker for users facing internet restrictions.
