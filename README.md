@@ -10,8 +10,11 @@ Some of the services this app checks, and it may be useful for users in countrie
 * GitHub — China, Iran
 * Google — China, Iran
 
-## Install from F-Droid
+## Install
 https://f-droid.org/en/packages/ir.ammari.nodelook/
+https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/deckerst/aves
+https://github.com/deckerst/aves/releases
+https://github.com/nodelook/android/actions
 
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
