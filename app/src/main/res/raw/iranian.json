@@ -1,0 +1,102 @@
+[
+    {
+        "name": "HamGit (GitLab)",
+        "url": "hamgit.ir/xmha97/test/-/raw/main/status",
+        "status": "200"
+    },
+    {
+        "name": "AranServer (GitLab)",
+        "url": "gitlab.aranserver.com/xmha97/test/-/raw/main/status",
+        "status": "200"
+    },
+    {
+        "name": "Rokhsara (Gitea)",
+        "url": "git.rokhsara.com/xmha97/test/raw/branch/main/status",
+        "status": "200"
+    },
+    {
+        "name": "Fandak (Gitea)",
+        "url": "gitea.fandak.lol/xmha97/test/raw/branch/main/status",
+        "status": "200"
+    },
+    {
+        "name": "Mred (Gitea)",
+        "url": "git.mred.ir/xmha97/test/raw/branch/main/status",
+        "status": "200"
+    },
+    {
+        "name": "Paragraph (Forgejo)",
+        "url": "git.prgph.fun/xmha97/test/raw/branch/main/status",
+        "status": "200"
+    },
+    {
+        "name": "AbreHamrahi",
+        "url": "abrehamrahi.ir/o/public/vlwU5cXR",
+        "status": "200"
+    },
+    {
+        "name": "AbreHamrahi (ShortenerLink)",
+        "url": "abhm.ir/kpWgPj",
+        "status": "200"
+    },
+    {
+        "name": "Uupload (ShortenerLink)",
+        "url": "my.uupload.ir/dl/NdQ4K1BD",
+        "status": "200"
+    },
+    {
+        "name": "Uupload",
+        "url": "s15.uupload.ir/files/xmha97/status.txt",
+        "status": "200"
+    },
+    {
+        "name": "TEROZA",
+        "url": "trzw.ir/up/loads/status.txt",
+        "status": "200"
+    },
+    {
+        "name": "Liara",
+        "url": "obd.storage.c2.liara.space/status?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=6b96162b-d379-44a7-ae3f-e3cd178bbf19%2F20260429%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260429T040002Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=064a1ef82adc6efe0918f74c909742770da989d9b90a348ec345d52fd0871e77",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tehran-Standard DotOne)",
+        "url": "test-hive.s3.ir-thr-at1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tehran-Standard)",
+        "url": "xmh.s3.ir-thr-at1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tehran-Standard WebSite)",
+        "url": "xmh.s3-website.ir-thr-at1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tehran-HiOps)",
+        "url": "xmh.hot.ir-central1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tehran-HiOps WebSite)",
+        "url": "xmh.hot-website.ir-central1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tabriz)",
+        "url": "xmh.s3.ir-tbz-sh1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "ArvanStorage (Tabriz WebSite)",
+        "url": "xmh.s3-website.ir-tbz-sh1.arvanstorage.ir/status",
+        "status": "200"
+    },
+    {
+        "name": "Zarebin",
+        "url": "zarebin.ir/search?q=thezarebinsiteisworkingproperly",
+        "status": "thezarebinsiteisworkingproperly"
+    }
+]

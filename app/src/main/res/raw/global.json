@@ -1,0 +1,147 @@
+[
+    {
+        "name": {
+            "en": "GitHub Site",
+            "fa": "وب‌سایت گیت‌هاب"
+        },
+        "url": "github.com/xmha97/test/blob/main/test",
+        "status": "thegithubsiteisworkingproperly"
+    },
+    {
+        "name": {
+            "en": "GitHub Site",
+            "fa": "ای‌پی‌آی گیت‌هاب"
+        },
+        "url": "api.github.com/octocat?s=thegithubapiisworkingproperly",
+        "status": "thegithubapiisworkingproperly"
+    },
+    {
+        "name": {
+            "en": "GitHub Pages",
+            "fa": "صفحه‌های گیت‌هاب"
+        },
+        "url": "xmha97.github.io/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "GitHub Gists",
+            "fa": "گیست‌های گیت‌هاب"
+        },
+        "url": "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "GitHub Repository",
+            "fa": "مخزن گیت‌هاب"
+        },
+        "url": "raw.githubusercontent.com/xmha97/test/refs/heads/main/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "GitHub Releases",
+            "fa": "رهانش‌های گیت‌هاب"
+        },
+        "url": "github.com/xmha97/test/releases/download/v1.0.0/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Codeberg Repository",
+            "fa": "مخزن کدبرگ"
+        },
+        "url": "codeberg.org/xmha97/test/raw/branch/main/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Codeberg Releases",
+            "fa": "رهانش‌های کدبرگ"
+        },
+        "url": "codeberg.org/xmha97/test/releases/download/v1.0.0/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "GitLab",
+            "fa": "گیت‌لب"
+        },
+        "url": "gitlab.com/xmha97/test/-/raw/master/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "DropBox",
+            "fa": "دراپ‌باکس"
+        },
+        "url": "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Internet Archive",
+            "fa": "بایکانی اینترنت"
+        },
+        "url": "archive.org/download/xmha97/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Pastebin",
+            "fa": "پیست‌بین"
+        },
+        "url": "pastebin.com/raw/ER5BRSx7",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Telegram",
+            "fa": "تلگرام"
+        },
+        "url": "t.me/thetelegramsiteisworkingproperly",
+        "status": "thetelegramsiteisworkingproperly"
+    },
+    {
+        "name": {
+            "en": "JS-org",
+            "fa": "جی‌اس-اُآرجی"
+        },
+        "name": "JS-org",
+        "url": "pad.js.org/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "jsDelivr",
+            "fa": "جی‌اس‌دلیور"
+        },
+        "url": "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Postman Echo",
+            "fa": "پست‌من اکو"
+        },
+        "url": "postman-echo.com/status/200",
+        "status": "200"
+    },
+    {
+        "name": {
+            "en": "Google Search",
+            "fa": "جستجوی گوگل"
+        },
+        "url": "google.com/search?q=thegooglesearchsiteisworkingproperly",
+        "status": "thegooglesearchsiteisworkingproperly"
+    },
+    {
+        "name": {
+            "en": "Google Translate",
+            "fa": "مترجم گوگل"
+        },
+        "url": "translate.google.com/?text=thegoogletranslatesiteisworkingproperly",
+        "status": "thegoogletranslatesiteisworkingproperly"
+    }
+]
