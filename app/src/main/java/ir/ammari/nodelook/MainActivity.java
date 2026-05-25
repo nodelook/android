@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("Postman Echo", "postman-echo.com/status/200", "200"));
         add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
-        add(new SiteInfo("Docker Hub", "hub.docker.com/v2/users/thedockerhubapiisworkingproperly", "thedockerhubapiisworkingproperly"));
+        add(new SiteInfo("Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
