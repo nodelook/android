@@ -49,7 +49,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("GitHub Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
         add(new SiteInfo("GitHub Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
         add(new SiteInfo("GitHub Releases", "github.com/xmha97/test/releases/download/v1.0.0/status", "200"));
-        add(new SiteInfo("GitHub Pages", "xmha97.github.io/status", "200"));
         add(new SiteInfo("Codeberg Repository", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
         add(new SiteInfo("Codeberg Releases", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
         add(new SiteInfo("GitLab", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
@@ -66,6 +65,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
+        add(new SiteInfo("[Docker Registry] Pardis Co", "https://mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Atlantis Cloud", "https://hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Timeweb Cloud", "https://dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Arvan Cloud", "https://docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
