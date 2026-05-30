@@ -65,10 +65,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("Google Search", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
-        add(new SiteInfo("[Docker Registry] Pardis Co", "https://mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Docker Registry] Atlantis Cloud", "https://hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Docker Registry] Timeweb Cloud", "https://dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Docker Registry] Arvan Cloud", "https://docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Timeweb Cloud", "dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
