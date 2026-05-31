@@ -59,10 +59,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Timeweb Cloud", "dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Software Repos] Flathub", "https://flathub.org/api/v2/status", "OK"));
-        add(new SiteInfo("[Software Repos] Snapcraft", "https://api.snapcraft.io/", "snapcraft"));
+        add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
+        add(new SiteInfo("[Software Repos] Snapcraft", "api.snapcraft.io/", "snapcraft"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
-        add(new SiteInfo("[Search Engine] Bing", "https://www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
+        add(new SiteInfo("[Search Engine] Bing", "www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] Startpage", "www.startpage.com/sp/search?query=thestartpagesearchsiteisworkingproperly","thestartpagesearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] DuckDuckGo", "duckduckgo.com/?q=theduckduckgosearchsiteisworkingproperly","theduckduckgosearchsiteisworkingproperly"));
         add(new SiteInfo("[Other] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
@@ -72,6 +72,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Other] JS-org", "pad.js.org/status", "200"));
         add(new SiteInfo("[Other] jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
         add(new SiteInfo("[Other] Postman", "postman-echo.com/status/200", "200"));
+        add(new SiteInfo("[Other] Postman", "detectportal.firefox.com/success.txt", "success"));
         add(new SiteInfo("[Other] Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
     }};
