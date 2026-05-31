@@ -64,16 +64,30 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] Bing", "www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] DuckDuckGo", "duckduckgo.com/?q=theduckduckgosearchsiteisworkingproperly","theduckduckgosearchsiteisworkingproperly"));
+        add(new SiteInfo("[Social Media] TikTok", "www.tiktok.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
+        add(new SiteInfo("[Social Media] Signal", "updates.signal.org/desktop/latest.yml", "signal"));
+        add(new SiteInfo("[Social Media] LinkedIn by Microsoft", "api.linkedin.com/v2/me", "EMPTY_ACCESS_TOKEN"));
+        add(new SiteInfo("[Social Media] WhatsApp by Meta", "web.whatsapp.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] Facebook by Meta", "www.facebook.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] Instagram by Meta", "www.instagram.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] Reddit", "www.reddit.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[AI ChatBot] Claude by Anthropic", "api.anthropic.com/v1/models", "authentication_error"));
+        add(new SiteInfo("[AI ChatBot] ChatGPT by OpenAI", "api.openai.com/v1/models", "invalid_request_error"));
+        add(new SiteInfo("[XXX] Fuq", "www.fuq.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[XXX] xHamster", "xhamster.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[XXX] XNXX", "www.xnxx.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Other] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
         add(new SiteInfo("[Other] Archive", "archive.org/download/xmha97/status", "200"));
         add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
-        add(new SiteInfo("[Other] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
         add(new SiteInfo("[Other] JS-org", "pad.js.org/status", "200"));
         add(new SiteInfo("[Other] jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
         add(new SiteInfo("[Other] Postman", "postman-echo.com/status/200", "200"));
         add(new SiteInfo("[Other] Firefox", "detectportal.firefox.com/success.txt", "success"));
-        add(new SiteInfo("[Other] Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
+        add(new SiteInfo("[Other] Translate by Google", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
+        add(new SiteInfo("[Other] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
+        add(new SiteInfo("[Other] Notion", "api.notion.com/v1/users/me", "unauthorized"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
