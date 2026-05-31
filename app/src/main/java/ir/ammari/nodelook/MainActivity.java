@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[GitHub] Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
         add(new SiteInfo("[GitHub] Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
         add(new SiteInfo("[GitHub] Releases", "github.com/xmha97/test/releases/download/v1.0.0/status", "200"));
-        add(new SiteInfo("[Codeberg Repository]", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
-        add(new SiteInfo("[Codeberg Releases]", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
+        add(new SiteInfo("[Codeberg] Repository", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
+        add(new SiteInfo("[Codeberg] Releases", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
         add(new SiteInfo("[GitLab]", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
         add(new SiteInfo("[DropBox]", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
         add(new SiteInfo("[Archive]", "archive.org/download/xmha97/status", "200"));
@@ -69,6 +69,8 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Timeweb Cloud", "dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Flathub] API", "https://flathub.org/api/v2/status", "OK"));
+        add(new SiteInfo("[Snapcraft] API", "https://api.snapcraft.io/", "snapcraft"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
