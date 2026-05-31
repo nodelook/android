@@ -67,13 +67,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] TikTok", "www.tiktok.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
         add(new SiteInfo("[Social Media] Signal", "updates.signal.org/desktop/latest.yml", "signal"));
-        add(new SiteInfo("[Social Media] LinkedIn by Microsoft", "api.linkedin.com/v2/me", "EMPTY_ACCESS_TOKEN"));
         add(new SiteInfo("[Social Media] WhatsApp by Meta", "web.whatsapp.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Facebook by Meta", "www.facebook.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Instagram by Meta", "www.instagram.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Reddit", "www.reddit.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[AI ChatBot] Claude by Anthropic", "api.anthropic.com/v1/models", "authentication_error"));
-        add(new SiteInfo("[AI ChatBot] ChatGPT by OpenAI", "api.openai.com/v1/models", "invalid_request_error"));
         add(new SiteInfo("[XXX] Fuq", "www.fuq.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] xHamster", "xhamster.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] XNXX", "www.xnxx.com/robots.txt", "Disallow"));
@@ -87,7 +84,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Other] Translate by Google", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
         add(new SiteInfo("[Other] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
-        add(new SiteInfo("[Other] Notion", "api.notion.com/v1/users/me", "unauthorized"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
