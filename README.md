@@ -13,6 +13,7 @@ Some of the services this app checks, and it may be useful for users in countrie
 ## Install
 ### Stable
 - https://f-droid.org/en/packages/ir.ammari.nodelook/
+- https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook/
 - https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android
 - https://github.com/nodelook/android/releases
 ### Nightly
