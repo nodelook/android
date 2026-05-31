@@ -49,9 +49,9 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[VCS] GitHub: Gists", "gist.githubusercontent.com/xmha97/94f6ba425d9874179fdd73fc0e2dc899/raw/e3a7ca5109c651f711000b3a02b4e032bd1d695f/status", "200"));
         add(new SiteInfo("[VCS] GitHub: Repository", "raw.githubusercontent.com/xmha97/test/refs/heads/main/status", "200"));
         add(new SiteInfo("[VCS] GitHub: Releases", "github.com/xmha97/test/releases/download/v1.0.0/status", "200"));
+        add(new SiteInfo("[VCS] GitLab: Repository", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
         add(new SiteInfo("[VCS] Codeberg: Repository", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
         add(new SiteInfo("[VCS] Codeberg: Releases", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
-        add(new SiteInfo("[VCS] GitLab: Repository", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
         add(new SiteInfo("[Wikipedia] English", "en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Arabic", "ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Persian", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
@@ -59,8 +59,8 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
         add(new SiteInfo("[Software Repos] Snapcraft", "api.snapcraft.io/", "snapcraft"));
+        add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] Bing", "www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] DuckDuckGo", "duckduckgo.com/?q=theduckduckgosearchsiteisworkingproperly","theduckduckgosearchsiteisworkingproperly"));
@@ -75,14 +75,14 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[XXX] xHamster", "xhamster.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] XNXX", "www.xnxx.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Other] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
-        add(new SiteInfo("[Other] Archive", "archive.org/download/xmha97/status", "200"));
-        add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
         add(new SiteInfo("[Other] JS-org", "pad.js.org/status", "200"));
         add(new SiteInfo("[Other] jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
         add(new SiteInfo("[Other] Postman", "postman-echo.com/status/200", "200"));
         add(new SiteInfo("[Other] Firefox", "detectportal.firefox.com/success.txt", "success"));
         add(new SiteInfo("[Other] Translate by Google", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
         add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
+        add(new SiteInfo("[Other] Archive", "archive.org/download/xmha97/status", "200"));
+        add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
         add(new SiteInfo("[Other] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
     }};
 
