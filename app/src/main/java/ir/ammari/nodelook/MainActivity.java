@@ -55,10 +55,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Wikipedia] English", "en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Arabic", "ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Persian", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
-        add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
-        add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Timeweb Cloud", "dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
         add(new SiteInfo("[Software Repos] Snapcraft", "api.snapcraft.io/", "snapcraft"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
