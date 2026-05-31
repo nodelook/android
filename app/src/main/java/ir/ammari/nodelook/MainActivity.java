@@ -52,18 +52,9 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[VCS] Codeberg: Repository", "codeberg.org/xmha97/test/raw/branch/main/status", "200"));
         add(new SiteInfo("[VCS] Codeberg: Releases", "codeberg.org/xmha97/test/releases/download/v1.0.0/status", "200"));
         add(new SiteInfo("[VCS] GitLab: Repository", "gitlab.com/xmha97/test/-/raw/master/status", "200"));
-        add(new SiteInfo("[Cloud Storage] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
-        add(new SiteInfo("[Archive]", "archive.org/download/xmha97/status", "200"));
-        add(new SiteInfo("[Pastebin]", "pastebin.com/raw/ER5BRSx7", "200"));
         add(new SiteInfo("[Wikipedia] English", "en.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Arabic", "ar.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
         add(new SiteInfo("[Wikipedia] Persian", "fa.wikipedia.org/w/index.php?title=User:Xmha97/status.js&action=raw&ctype=text/javascript", "200"));
-        add(new SiteInfo("[Social Media] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
-        add(new SiteInfo("[JS-org]", "pad.js.org/status", "200"));
-        add(new SiteInfo("[jsDelivr]", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
-        add(new SiteInfo("[Postman]", "postman-echo.com/status/200", "200"));
-        add(new SiteInfo("[Google Translate]", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
-        add(new SiteInfo("[Docker Hub]", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
         add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Timeweb Cloud", "dockerhub.timeweb.cloud/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
@@ -72,6 +63,16 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Software Repos] Snapcraft", "https://api.snapcraft.io/", "snapcraft"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] Bing", "https://www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
+        add(new SiteInfo("[Cloud Storage] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
+        add(new SiteInfo("[Other] Archive", "archive.org/download/xmha97/status", "200"));
+        add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
+        add(new SiteInfo("[Other] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
+        add(new SiteInfo("[Other] JS-org", "pad.js.org/status", "200"));
+        add(new SiteInfo("[Other] jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
+        add(new SiteInfo("[Other] Postman", "postman-echo.com/status/200", "200"));
+        add(new SiteInfo("[Other] Google Translate", "translate.google.com/?text=thegoogletranslatesiteisworkingproperly", "thegoogletranslatesiteisworkingproperly"));
+        add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
+
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
