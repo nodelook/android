@@ -77,8 +77,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] Bale", "bale.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bale Web", "web.bale.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bale Web Beta", "beta.bale.ai/robots.txt", "Disallow"));
-        add(new SiteInfo("[Music] RadioJavan", "www.radiojavan.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Music] RadioJavan Play", "www.radiojavan.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Music] Spotify", "www.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
@@ -86,7 +84,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[AI] Claude", "claude.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Copilot", "copilot.microsoft.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Grok", "grok.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[AI] DeepSeek", "chat.deepseek.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Gemini", "gemini.google.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] ChatGPT", "chatgpt.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] Fuq", "www.fuq.com/robots.txt", "Disallow"));
