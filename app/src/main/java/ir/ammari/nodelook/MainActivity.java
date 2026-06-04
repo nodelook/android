@@ -86,6 +86,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[AI] Grok", "grok.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Gemini", "gemini.google.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] ChatGPT", "chatgpt.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[XXX] PornHub", "www.pornhub.com/passkey/preflight", "false"));
         add(new SiteInfo("[XXX] Fuq", "www.fuq.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] xHamster", "xhamster.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] XNXX", "www.xnxx.com/robots.txt", "Disallow"));
