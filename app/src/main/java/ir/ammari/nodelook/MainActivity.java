@@ -65,8 +65,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Ubuntu Repository] NetCologne", "mirror.netcologne.de/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Ubuntu Repository] NLUUG", "mirror.nl.leaseweb.net/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Ubuntu Repository] Leaseweb", "ftp.nluug.nl/os/Linux/distr/ubuntu/dists/noble/Release", "Ubuntu"));
-        add(new SiteInfo("[Ubuntu Repository] Bytemark", "mirror.bytemark.co.uk/ubuntu/dists/noble/Release", "Ubuntu"));
-        add(new SiteInfo("[Ubuntu Repository] Umeå University", "ftp.acc.umu.se/mirror/ubuntu.com/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Ubuntu Repository] University of California, Berkeley", "mirrors.ocf.berkeley.edu/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Ubuntu Repository] University of Waterloo Computer Science Club", "mirror.csclub.uwaterloo.ca/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Software Repos] Snapcraft", "api.snapcraft.io/", "snapcraft"));
