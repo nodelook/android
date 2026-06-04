@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] Facebook by Meta", "www.facebook.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Instagram by Meta", "www.instagram.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Reddit", "www.reddit.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Social Media] Reddit", "x.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] X", "x.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bluesky", "bsky.app/robots.txt", "Allow"));
         add(new SiteInfo("[Social Media] Bale", "bale.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bale Web", "web.bale.ai/robots.txt", "Disallow"));
