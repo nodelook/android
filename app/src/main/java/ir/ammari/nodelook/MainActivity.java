@@ -90,6 +90,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[XXX] Fuq", "www.fuq.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] xHamster", "xhamster.com/robots.txt", "Disallow"));
         add(new SiteInfo("[XXX] XNXX", "www.xnxx.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[XXX] RedGifs", "www.redgifs.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Other] DropBox", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
         add(new SiteInfo("[Other] JS-org", "pad.js.org/status", "200"));
         add(new SiteInfo("[Other] jsDelivr", "cdn.jsdelivr.net/gh/xmha97/test@1.0.0/status", "200"));
