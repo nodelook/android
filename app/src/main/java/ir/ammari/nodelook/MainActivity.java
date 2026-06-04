@@ -85,6 +85,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] Bale", "bale.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bale Web", "web.bale.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Bale Web Beta", "beta.bale.ai/robots.txt", "Disallow"));
+        add(new SiteInfo("[Social Media] Bale API", "assets.bale.ai/configs.json", "bale"));
         add(new SiteInfo("[Music] Spotify", "www.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
