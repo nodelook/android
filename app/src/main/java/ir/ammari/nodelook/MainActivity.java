@@ -59,6 +59,16 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Docker Registry] Pardis Co", "mirrors.pardisco.co/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Arvan Cloud", "docker.arvancloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
         add(new SiteInfo("[Docker Registry] Atlantis Cloud", "hub.atlantiscloud.ir/v2/jc21/nginx-proxy-manager/manifests/latest", "application/vnd.oci.image.index.v1+json"));
+        add(new SiteInfo("[Ubuntu Repository] Ubuntu Archive", "archive.ubuntu.com/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] ArvanCloud", "mirror.arvancloud.ir/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] Friedrich-Alexander University Erlangen-Nürnberg", "ftp.fau.de/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] NetCologne", "mirror.netcologne.de/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] NLUUG", "mirror.nl.leaseweb.net/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] Leaseweb", "ftp.nluug.nl/os/Linux/distr/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] Bytemark", "mirror.bytemark.co.uk/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] Umeå University", "ftp.acc.umu.se/mirror/ubuntu.com/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] University of California, Berkeley", "mirrors.ocf.berkeley.edu/ubuntu/dists/noble/Release", "Ubuntu"));
+        add(new SiteInfo("[Ubuntu Repository] University of Waterloo Computer Science Club", "mirror.csclub.uwaterloo.ca/ubuntu/dists/noble/Release", "Ubuntu"));
         add(new SiteInfo("[Software Repos] Snapcraft", "api.snapcraft.io/", "snapcraft"));
         add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
