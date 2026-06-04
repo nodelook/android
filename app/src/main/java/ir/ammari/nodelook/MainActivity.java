@@ -81,6 +81,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] YouTube", "www.youtube.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Video] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
         add(new SiteInfo("[AI] Claude", "claude.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Copilot", "copilot.microsoft.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Grok", "grok.com/robots.txt", "Disallow"));
@@ -100,7 +101,6 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Other] Docker Hub", "hub.docker.com/search?q=thedockerhubsiteisworkingproperly", "thedockerhubsiteisworkingproperly"));
         add(new SiteInfo("[Other] Archive", "archive.org/download/xmha97/status", "200"));
         add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
-        add(new SiteInfo("[Other] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
     }};
 
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
