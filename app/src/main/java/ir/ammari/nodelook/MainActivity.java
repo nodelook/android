@@ -92,8 +92,8 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] Bale: WebSocket Signaling Server 4", "https://meet-gwbm4.ble.ir/", "OK"));
         add(new SiteInfo("[Social Media] Bale: WebSocket Signaling Server 5", "https://meet-gwbm5.ble.ir/", "OK"));
         add(new SiteInfo("[Social Media] Bale: WebSocket Signaling Server 6", "https://meet-gwbm6.ble.ir/", "OK"));
-        add(new SiteInfo("[Social Media] Bale: TURN Server", "https://meet-turn.ble.ir", "OK")
-        add(new SiteInfo("[Social Media] Bale: Meet", "https://meet.bale.ai/token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")
+        add(new SiteInfo("[Social Media] Bale: TURN Server", "https://meet-turn.ble.ir", "OK"));
+        add(new SiteInfo("[Social Media] Bale: Meet", "https://meet.bale.ai/token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"));
         add(new SiteInfo("[Music] Spotify", "www.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
