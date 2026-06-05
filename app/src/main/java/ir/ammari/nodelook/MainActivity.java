@@ -104,11 +104,11 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[AI] Grok", "grok.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Gemini", "gemini.google.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] ChatGPT", "chatgpt.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Cloud Storage] DropBox: Site", "https://www.dropbox.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Cloud Storage] DropBox: Site", "www.dropbox.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Cloud Storage] DropBox: Contents", "www.dropbox.com/scl/fi/dovory2z1y9xnj6kxwyq7/status?rlkey=48kb8gpm3fjnx76oglv1bm3u0&st=hy5uz0th&dl=1", "200"));
-        add(new SiteInfo("[Cloud Storage] pCloud", "https://www.pcloud.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Cloud Storage] OneDrive", "https://onedrive.live.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Cloud Storage] Google Drive", "https://drive.google.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Cloud Storage] pCloud", "www.pcloud.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Cloud Storage] OneDrive", "onedrive.live.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Cloud Storage] Google Drive", "drive.google.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Test] Postman Echo", "postman-echo.com/status/200", "200"));
         add(new SiteInfo("[Test] Firefox DetectPortal", "detectportal.firefox.com/success.txt", "success"));
         add(new SiteInfo("[XXX] PornHub", "www.pornhub.com/passkey/preflight", "false"));
