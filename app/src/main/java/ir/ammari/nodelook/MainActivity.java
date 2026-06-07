@@ -173,8 +173,9 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Social Media] Bale: Signaling Server 6", "meet-gwbm6.ble.ir/", "OK"));
         add(new SiteInfo("[Social Media] Bale: TURN Server", "meet-turn.ble.ir", "OK"));
         add(new SiteInfo("[Social Media] Bale: Meet", "meet.bale.ai/token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"));
-        add(new SiteInfo("[Music] Spotify", "www.spotify.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Music] Spotify: Site", "www.spotify.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Music] Spotify: Web", "open.spotify.com/robots.txt", "Disallow"));
+        add(new SiteInfo("[Music] Spotify: API", "api.spotify.com/v1/me", "No token provided"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] YouTube", "www.youtube.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] BiliBili: API", "api.bilibili.com/x/web-interface/nav", "false"));
