@@ -150,7 +150,7 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Software Repos] Flathub", "flathub.org/api/v2/status", "OK"));
         add(new SiteInfo("[Search Engine] Google", "google.com/search?q=thegooglesearchsiteisworkingproperly", "thegooglesearchsiteisworkingproperly"));
         add(new SiteInfo("[Search Engine] Bing", "www.bing.com/search?q=thebingsearchsiteisworkingproperly","thebingsearchsiteisworkingproperly"));
-        add(new SiteInfo("[Search Engine] DuckDuckGo", No token provided"duckduckgo.com/?q=theduckduckgosearchsiteisworkingproperly","theduckduckgosearchsiteisworkingproperly"));
+        add(new SiteInfo("[Search Engine] DuckDuckGo", "duckduckgo.com/?q=theduckduckgosearchsiteisworkingproperly","theduckduckgosearchsiteisworkingproperly"));
         add(new SiteInfo("[Social Media] TikTok", "www.tiktok.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Social Media] Telegram", "t.me/thetelegramsiteisworkingproperly", "thetelegramsiteisworkingproperly"));
         add(new SiteInfo("[Social Media] Signal", "updates.signal.org/desktop/latest.yml", "signal"));
