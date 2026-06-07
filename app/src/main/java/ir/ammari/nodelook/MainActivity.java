@@ -177,7 +177,10 @@ public class MainActivity extends Activity {
         add(new SiteInfo("[Music] Spotify Open", "open.spotify.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] Aparat", "www.aparat.com/robots.txt", "Disallow"));
         add(new SiteInfo("[Video] YouTube", "www.youtube.com/robots.txt", "Disallow"));
-        add(new SiteInfo("[Video] BiliBili", "api.bilibili.com/x/web-interface/nav", "false"));
+        add(new SiteInfo("[Video] BiliBili: API", "api.bilibili.com/x/web-interface/nav", "false"));
+        add(new SiteInfo("[Video] BiliBili: Image", "archive.biliimg.com", "OK"));
+        add(new SiteInfo("[Video] BiliBili: GameAPI 1", "line1-h5-pc-api.biligame.com", "SUCCESS"));
+        add(new SiteInfo("[Video] BiliBili: GameAPI 3", "line3-h5-pc-api.biligame.com", "SUCCESS"));
         add(new SiteInfo("[AI] Claude", "claude.ai/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Copilot", "copilot.microsoft.com/robots.txt", "Disallow"));
         add(new SiteInfo("[AI] Grok", "grok.com/robots.txt", "Disallow"));
