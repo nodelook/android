@@ -63,21 +63,18 @@ android {
     }
 }
 
-dependencies {
-}
+dependencies {}
 
 val generateAppSrcTask by tasks.registering {
     operator fun File.div(child: String) = File(this, child)
-    val jsonFiles = arrayOf(
-//        projectDir / ".." / "data" / "dockerregistry.json",
-        projectDir / ".." / "data" / "gaming.json",
-//        projectDir / ".." / "data" / "global.json",
-        projectDir / ".." / "data" / "iranian.json",
-//        projectDir / ".." / "data" / "mirrors.json",
-        projectDir / ".." / "data" / "tor.json",
-        projectDir / ".." / "data" / "wikipedia.json",
-    )
-    inputs.files(*jsonFiles)
+    val dataDir = projectDir / ".." / "data"
+    val jsonFiles = dataDir.listFiles { file ->
+        when (file.name) {
+            "dockerregistry.json", "global.json", "mirrors.json" -> false
+            else -> true
+        } && file.extension == "json"
+    } ?: emptyArray()
+    inputs.files(jsonFiles)
     val generatedAppSrcDir =
         layout.buildDirectory.get().asFile / "generated" / "source" / "appsrc" / "main"
     val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
