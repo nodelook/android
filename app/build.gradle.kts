@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 plugins {
     alias(libs.plugins.com.android.application)
 }
@@ -52,7 +54,61 @@ android {
         checkGeneratedSources = true
         baseline = file("lint-baseline.xml") // To update: ./gradlew updateLintBaseline
     }
+
+    sourceSets {
+        getByName("main") {
+            java.directories += layout.buildDirectory.dir("generated/source/appsrc/main").get()
+                .toString()
+        }
+    }
 }
 
 dependencies {
 }
+
+val generateAppSrcTask by tasks.registering {
+    operator fun File.div(child: String) = File(this, child)
+    val jsonFiles = arrayOf(
+//        projectDir / ".." / "data" / "dockerregistry.json",
+        projectDir / ".." / "data" / "gaming.json",
+//        projectDir / ".." / "data" / "global.json",
+        projectDir / ".." / "data" / "iranian.json",
+//        projectDir / ".." / "data" / "mirrors.json",
+        projectDir / ".." / "data" / "tor.json",
+        projectDir / ".." / "data" / "wikipedia.json",
+    )
+    inputs.files(*jsonFiles)
+    val generatedAppSrcDir =
+        layout.buildDirectory.get().asFile / "generated" / "source" / "appsrc" / "main"
+    val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
+    val dataOutput = generateDir / "Data.java"
+    outputs.files(dataOutput)
+    doLast {
+        generateDir.mkdirs()
+        val jsonSlurper = JsonSlurper()
+        val root = jsonFiles.flatMap { jsonSlurper.parse(it) as List<*> }.joinToString("\n") {
+            val item = it as Map<*, *>
+            val name = when (val name = item["name"]) {
+                is Map<*, *> -> name["en"] as String
+                else -> name as String
+            }
+            val url = item["url"] as String
+            val status = item["status"] as String
+            """        add(new SiteInfo("$name", "$url", "$status"));"""
+        }
+
+        dataOutput.writeText(
+            """package ${android.defaultConfig.applicationId};
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Data {
+    public static final List<SiteInfo> list = new ArrayList<>() {{
+$root
+    }};
+}"""
+        )
+    }
+}
+tasks.named("preBuild").configure { dependsOn(generateAppSrcTask) }
