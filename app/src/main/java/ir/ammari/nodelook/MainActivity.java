@@ -299,11 +299,11 @@ public class MainActivity extends Activity {
         buttonLayoutParams.weight = 1f;
         final var buttonBar = new LinearLayout(this);
         for (final var entry : Data.entries.entrySet()) {
-            final var testButton = new Button(this);
-            testButton.setText(entry.getKey());
-            testButton.setOnClickListener((v) -> testAll(textView, entry.getValue()));
-            testButton.setLayoutParams(buttonLayoutParams);
-            buttonBar.addView(testButton);
+            final var button = new Button(this);
+            button.setText(entry.getKey());
+            button.setOnClickListener((v) -> testAll(textView, entry.getValue()));
+            button.setLayoutParams(buttonLayoutParams);
+            buttonBar.addView(button);
         }
         final var pingButton = new Button(this);
         pingButton.setText(R.string.ping);
