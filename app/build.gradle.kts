@@ -83,27 +83,26 @@ val generateAppSrcTask by tasks.registering {
     doLast {
         generateDir.mkdirs()
         val jsonSlurper = JsonSlurper()
-        val root = jsonFiles.flatMap { jsonSlurper.parse(it) as List<*> }.joinToString("\n") {
-            val item = it as Map<*, *>
-            val name = when (val name = item["name"]) {
-                is Map<*, *> -> name["en"] as String
-                else -> name as String
-            }
-            val url = item["url"] as String
-            val status = item["status"] as String
-            """        add(new SiteInfo("$name", "$url", "$status"));"""
+        val source = jsonFiles.joinToString("\n") { file ->
+            val list = jsonSlurper.parse(file) as List<*>
+            val name = file.nameWithoutExtension
+            "    public static final SiteInfo[] $name = {\n" + list.joinToString(",\n") {
+                val item = it as Map<*, *>
+                val name = when (val name = item["name"]) {
+                    is Map<*, *> -> name["en"] as String
+                    else -> name as String
+                }
+                val url = item["url"] as String
+                val status = item["status"] as String
+                """            new SiteInfo("$name", "$url", "$status")"""
+            } + "\n    };"
         }
 
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId};
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Data {
-    public static final List<SiteInfo> list = new ArrayList<>() {{
-$root
-    }};
+$source
 }"""
         )
     }

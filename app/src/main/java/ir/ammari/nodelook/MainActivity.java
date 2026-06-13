@@ -221,9 +221,9 @@ public class MainActivity extends Activity {
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
         new Thread(() -> {
             var result = "Invalid result";
-            try (final var inputStream = new URL("https:/" + site.url).openStream();
+            try (final var inputStream = new URL("https:/" + site.url()).openStream();
                  final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                final var expected = site.status;
+                final var expected = site.status();
                 final var responseBuilder = new StringBuilder();
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -245,7 +245,7 @@ public class MainActivity extends Activity {
             }
             final var finalResult = result;
             runOnUiThread(() -> {
-                status.put(site.name, finalResult);
+                status.put(site.name(), finalResult);
                 displayResult(status, textView);
             });
         }).start();
@@ -253,8 +253,8 @@ public class MainActivity extends Activity {
 
     private void displayResult(Map<String, String> status, @NonNull TextView textView) {
         final var text = new SpannableStringBuilder();
-        for (final var site : Data.list) {
-            final var key = site.name;
+        for (final var site : Data.gaming) {
+            final var key = site.name();
             text.append(key);
             if (status.containsKey(key)) {
                 text.append(" - ");
@@ -344,7 +344,7 @@ public class MainActivity extends Activity {
 
         displayResult(status, textView);
 
-        for (final var site : Data.list) {
+        for (final var site : Data.gaming) {
             testURL(status, textView, site);
         }
     }
