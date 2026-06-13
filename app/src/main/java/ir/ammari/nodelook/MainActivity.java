@@ -9,7 +9,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -338,8 +337,6 @@ public class MainActivity extends Activity {
 
         displayResult(status, textView, sites);
 
-        for (final var site : sites) {
-            testURL(status, textView, site, sites);
-        }
+        for (final var site : sites) testURL(status, textView, site, sites);
     }
 }
