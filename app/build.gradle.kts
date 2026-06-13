@@ -97,11 +97,21 @@ val generateAppSrcTask by tasks.registering {
                 """            new SiteInfo("$name", "$url", "$status")"""
             } + "\n    };"
         }
+        val entries = jsonFiles.joinToString("\n") {
+            val name = it.nameWithoutExtension
+            """        put("$name", Data.$name);"""
+        }
 
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId};
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Data {
+    public static final Map<String, SiteInfo[]> entries = new LinkedHashMap<>() {{
+$entries
+    }};
 $source
 }"""
         )
