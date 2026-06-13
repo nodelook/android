@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -295,24 +296,36 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.setFitsSystemWindows(true);
         }
-        final var buttonLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
-        buttonLayoutParams.weight = 1f;
-        final var buttonBar = new LinearLayout(this);
-        for (final var entry : Data.entries.entrySet()) {
-            final var button = new Button(this);
-            button.setText(entry.getKey());
-            button.setOnClickListener((v) -> testAll(textView, entry.getValue()));
-            button.setLayoutParams(buttonLayoutParams);
-            buttonBar.addView(button);
+        ViewGroup buttonBarScrollable = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+            buttonBarScrollable = new HorizontalScrollView(this);
         }
         {
-            final var pingButton = new Button(this);
-            pingButton.setText(R.string.ping);
-            pingButton.setOnClickListener((v) -> ping(textView));
-            pingButton.setLayoutParams(buttonLayoutParams);
-            buttonBar.addView(pingButton);
+            final var wrapContent = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            final var buttonBar = new LinearLayout(this);
+            {
+                final var pingButton = new Button(this);
+                pingButton.setText(R.string.ping);
+                pingButton.setOnClickListener((v) -> ping(textView));
+                pingButton.setLayoutParams(wrapContent);
+                buttonBar.addView(pingButton);
+            }
+            for (final var entry : Data.entries.entrySet()) {
+                final var button = new Button(this);
+                button.setText(entry.getKey());
+                button.setOnClickListener((v) -> testAll(textView, entry.getValue()));
+                button.setLayoutParams(wrapContent);
+                buttonBar.addView(button);
+            }
+            buttonBar.setOrientation(LinearLayout.HORIZONTAL);
+            buttonBar.setLayoutParams(wrapContent);
+            if (buttonBarScrollable != null) {
+                buttonBarScrollable.addView(buttonBar);
+                root.addView(buttonBarScrollable);
+            } else {
+                root.addView(buttonBar);
+            }
         }
-        root.addView(buttonBar);
         setContentView(root);
     }
 
