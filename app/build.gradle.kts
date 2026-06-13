@@ -109,10 +109,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Data {
+$source
     public static final Map<String, SiteInfo[]> entries = new LinkedHashMap<>() {{
 $entries
     }};
-$source
 }"""
         )
     }

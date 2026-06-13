@@ -9,6 +9,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,9 +24,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainActivity extends Activity {
@@ -220,11 +219,10 @@ public class MainActivity extends Activity {
 //        add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
 //    }};
 
-    private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site) {
+    private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, SiteInfo[] sites) {
         new Thread(() -> {
             var result = "Invalid result";
-            try (final var inputStream = new URL("https:/" + site.url()).openStream();
-                 final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            try (final var inputStream = new URL("https:/" + site.url()).openStream(); final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
                 final var expected = site.status();
                 final var responseBuilder = new StringBuilder();
                 String line;
@@ -232,10 +230,8 @@ public class MainActivity extends Activity {
                     responseBuilder.append(line);
                 }
                 final var response = responseBuilder.toString();
-                final var cleanResponse =
-                        response.replaceAll("[\\n\\r\\t .]", "");
-                final var cleanExpected =
-                        expected.replaceAll("[\\n\\r\\t .]", "");
+                final var cleanResponse = response.replaceAll("[\\n\\r\\t .]", "");
+                final var cleanExpected = expected.replaceAll("[\\n\\r\\t .]", "");
                 if (cleanResponse.contains(cleanExpected)) {
                     result = "success";
                 } else {
@@ -248,14 +244,14 @@ public class MainActivity extends Activity {
             final var finalResult = result;
             runOnUiThread(() -> {
                 status.put(site.name(), finalResult);
-                displayResult(status, textView);
+                displayResult(status, textView, sites);
             });
         }).start();
     }
 
-    private void displayResult(Map<String, String> status, @NonNull TextView textView) {
+    private void displayResult(Map<String, String> status, @NonNull TextView textView, SiteInfo[] sites) {
         final var text = new SpannableStringBuilder();
-        for (final var site : Data.gaming) {
+        for (final var site : sites) {
             final var key = site.name();
             text.append(key);
             if (status.containsKey(key)) {
@@ -290,10 +286,7 @@ public class MainActivity extends Activity {
         }
         final var scrollView = new ScrollView(this);
         scrollView.addView(textView);
-        final var scrollViewParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                0
-        );
+        final var scrollViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         scrollViewParams.weight = 1f;
         scrollView.setLayoutParams(scrollViewParams);
         final var root = new LinearLayout(this);
@@ -302,17 +295,16 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.setFitsSystemWindows(true);
         }
-        final var buttonLayoutParams = new LinearLayout.LayoutParams(
-                0,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        );
+        final var buttonLayoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
         buttonLayoutParams.weight = 1f;
         final var buttonBar = new LinearLayout(this);
-        final var testButton = new Button(this);
-        testButton.setText(R.string.test);
-        testButton.setOnClickListener((v) -> testAll(textView));
-        testButton.setLayoutParams(buttonLayoutParams);
-        buttonBar.addView(testButton);
+        for (final var entry : Data.entries.entrySet()) {
+            final var testButton = new Button(this);
+            testButton.setText(entry.getKey());
+            testButton.setOnClickListener((v) -> testAll(textView, entry.getValue()));
+            testButton.setLayoutParams(buttonLayoutParams);
+            buttonBar.addView(testButton);
+        }
         final var pingButton = new Button(this);
         pingButton.setText(R.string.ping);
         pingButton.setOnClickListener((v) -> ping(textView));
@@ -341,13 +333,13 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    private void testAll(TextView textView) {
+    private void testAll(TextView textView, @NonNull SiteInfo[] sites) {
         final var status = new HashMap<String, String>();
 
-        displayResult(status, textView);
+        displayResult(status, textView, sites);
 
-        for (final var site : Data.gaming) {
-            testURL(status, textView, site);
+        for (final var site : sites) {
+            testURL(status, textView, site, sites);
         }
     }
 }
