@@ -9,6 +9,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -238,7 +239,7 @@ public class MainActivity extends Activity {
                 }
             } catch (IOException e) {
                 result = e.getMessage();
-                e.printStackTrace();
+                Log.e("NodeLook", site.toString(), e);
             }
             final var finalResult = result;
             runOnUiThread(() -> {
