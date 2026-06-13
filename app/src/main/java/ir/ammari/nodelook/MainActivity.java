@@ -337,9 +337,7 @@ public class MainActivity extends Activity {
 
     private void testAll(TextView textView, @NonNull SiteInfo[] sites) {
         final var status = new HashMap<String, String>();
-
         displayResult(status, textView, sites);
-
         for (final var site : sites) testURL(status, textView, site, sites);
     }
 }
