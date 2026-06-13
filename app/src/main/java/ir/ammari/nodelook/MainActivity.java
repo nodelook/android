@@ -305,11 +305,13 @@ public class MainActivity extends Activity {
             button.setLayoutParams(buttonLayoutParams);
             buttonBar.addView(button);
         }
-        final var pingButton = new Button(this);
-        pingButton.setText(R.string.ping);
-        pingButton.setOnClickListener((v) -> ping(textView));
-        pingButton.setLayoutParams(buttonLayoutParams);
-        buttonBar.addView(pingButton);
+        {
+            final var pingButton = new Button(this);
+            pingButton.setText(R.string.ping);
+            pingButton.setOnClickListener((v) -> ping(textView));
+            pingButton.setLayoutParams(buttonLayoutParams);
+            buttonBar.addView(pingButton);
+        }
         root.addView(buttonBar);
         setContentView(root);
     }
