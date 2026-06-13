@@ -86,7 +86,8 @@ val generateAppSrcTask by tasks.registering {
         val source = jsonFiles.joinToString("\n") { file ->
             val list = jsonSlurper.parse(file) as List<*>
             val name = file.nameWithoutExtension
-            "    private static final SiteInfo[] $name = {\n" + list.joinToString(",\n") {
+            val entry = name.replaceFirstChar { it.uppercase() }
+            "        put(\"$entry\", new SiteInfo[]{\n" + list.joinToString(",\n") {
                 val item = it as Map<*, *>
                 val name = when (val name = item["name"]) {
                     is Map<*, *> -> name["en"] as String
@@ -94,14 +95,9 @@ val generateAppSrcTask by tasks.registering {
                 }
                 val url = item["url"] as String
                 val status = item["status"] as String
-                """            new SiteInfo("$name", "$url", "$status")"""
-            } + "\n    };"
+                """                new SiteInfo("$name", "$url", "$status")"""
+            } + "\n        });"
         }
-        val entries = jsonFiles.joinToString("\n") {
-            val name = it.nameWithoutExtension
-            """        put("$name", Data.$name);"""
-        }
-
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId};
 
@@ -109,9 +105,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Data {
-$source
     public static final Map<String, SiteInfo[]> entries = new LinkedHashMap<>() {{
-$entries
+$source
     }};
 }"""
         )
