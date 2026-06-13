@@ -86,7 +86,7 @@ val generateAppSrcTask by tasks.registering {
         val source = jsonFiles.joinToString("\n") { file ->
             val list = jsonSlurper.parse(file) as List<*>
             val name = file.nameWithoutExtension
-            "    public static final SiteInfo[] $name = {\n" + list.joinToString(",\n") {
+            "    private static final SiteInfo[] $name = {\n" + list.joinToString(",\n") {
                 val item = it as Map<*, *>
                 val name = when (val name = item["name"]) {
                     is Map<*, *> -> name["en"] as String
