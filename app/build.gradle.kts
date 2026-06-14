@@ -101,7 +101,7 @@ val generateAppSrcTask by tasks.registering {
             """package ${android.defaultConfig.applicationId};
 
 public class Data {
-    public record Category(String title, SiteInfo[] members) {
+    public static record Category(String title, SiteInfo[] members) {
     }
 
     public static final Category[] categories = {
