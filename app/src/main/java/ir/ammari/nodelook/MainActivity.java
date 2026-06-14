@@ -298,7 +298,7 @@ public class MainActivity extends Activity {
         }
         final var buttonBar = getButtonsBar(textView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-            ViewGroup buttonBarScrollable = new HorizontalScrollView(this);
+            final var buttonBarScrollable = new HorizontalScrollView(this);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
                 buttonBarScrollable.setScrollbarFadingEnabled(false);
             }
