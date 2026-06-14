@@ -223,7 +223,10 @@ public class MainActivity extends Activity {
     private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, SiteInfo[] sites) {
         new Thread(() -> {
             var result = "Invalid result";
-            try (final var inputStream = new URL("https:/" + site.url()).openStream(); final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            try (
+                    final var inputStream = new URL("https://" + site.url()).openStream();
+                    final var reader = new BufferedReader(new InputStreamReader(inputStream))
+            ) {
                 final var expected = site.status();
                 final var responseBuilder = new StringBuilder();
                 String line;
