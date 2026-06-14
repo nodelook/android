@@ -323,10 +323,10 @@ public class MainActivity extends Activity {
             pingButton.setLayoutParams(wrapContent);
             buttonBar.addView(pingButton);
         }
-        for (final var entry : Data.entries) {
+        for (final var category : Data.categories) {
             final var button = new Button(this);
-            button.setText(entry.key());
-            button.setOnClickListener((v) -> testAll(textView, entry.sites()));
+            button.setText(category.title());
+            button.setOnClickListener((v) -> testAll(textView, category.members()));
             button.setLayoutParams(wrapContent);
             buttonBar.addView(button);
         }

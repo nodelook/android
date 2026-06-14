@@ -84,9 +84,9 @@ val generateAppSrcTask by tasks.registering {
         generateDir.mkdirs()
         val jsonSlurper = JsonSlurper()
         val source = jsonFiles.joinToString(",\n") {
-            val list = jsonSlurper.parse(it) as List<*>
-            val entry = it.nameWithoutExtension.replaceFirstChar(Char::uppercase)
-            "            new Entry(\"$entry\", new SiteInfo[]{\n" + list.joinToString(",\n") {
+            val members = jsonSlurper.parse(it) as List<*>
+            val title = it.nameWithoutExtension.replaceFirstChar(Char::uppercase)
+            "            new Category(\"$title\", new SiteInfo[]{\n" + members.joinToString(",\n") {
                 val item = it as Map<*, *>
                 val name = when (val name = item["name"]) {
                     is Map<*, *> -> name["en"] as String
@@ -101,10 +101,10 @@ val generateAppSrcTask by tasks.registering {
             """package ${android.defaultConfig.applicationId};
 
 public class Data {
-    public record Entry(String key, SiteInfo[] sites) {
+    public record Category(String title, SiteInfo[] members) {
     }
 
-    public static final Entry[] entries = {
+    public static final Category[] categories = {
 $source
     };
 }"""
