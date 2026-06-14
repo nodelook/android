@@ -296,44 +296,43 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.setFitsSystemWindows(true);
         }
-        ViewGroup buttonBarScrollable = null;
+        final var buttonBar = getButtonsBar(textView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-            buttonBarScrollable = new HorizontalScrollView(this);
+            ViewGroup buttonBarScrollable = new HorizontalScrollView(this);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
                 buttonBarScrollable.setScrollbarFadingEnabled(false);
             }
+            buttonBarScrollable.addView(buttonBar);
+            root.addView(buttonBarScrollable);
+        } else root.addView(buttonBar);
+        setContentView(root);
+    }
+
+    @NonNull
+    private LinearLayout getButtonsBar(TextView textView) {
+        final var wrapContent = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final var buttonBar = new LinearLayout(this);
+        {
+            float bottomPadding = getResources().getDisplayMetrics().density * 4;
+            buttonBar.setPadding(0, 0, 0, (int) bottomPadding);
         }
         {
-            final var wrapContent = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            final var buttonBar = new LinearLayout(this);
-            {
-                float bottomPadding = getResources().getDisplayMetrics().density * 4;
-                buttonBar.setPadding(0, 0, 0, (int) bottomPadding);
-            }
-            {
-                final var pingButton = new Button(this);
-                pingButton.setText(R.string.ping);
-                pingButton.setOnClickListener((v) -> ping(textView));
-                pingButton.setLayoutParams(wrapContent);
-                buttonBar.addView(pingButton);
-            }
-            for (final var entry : Data.entries) {
-                final var button = new Button(this);
-                button.setText(entry.key());
-                button.setOnClickListener((v) -> testAll(textView, entry.sites()));
-                button.setLayoutParams(wrapContent);
-                buttonBar.addView(button);
-            }
-            buttonBar.setOrientation(LinearLayout.HORIZONTAL);
-            buttonBar.setLayoutParams(wrapContent);
-            if (buttonBarScrollable != null) {
-                buttonBarScrollable.addView(buttonBar);
-                root.addView(buttonBarScrollable);
-            } else {
-                root.addView(buttonBar);
-            }
+            final var pingButton = new Button(this);
+            pingButton.setText(R.string.ping);
+            pingButton.setOnClickListener((v) -> ping(textView));
+            pingButton.setLayoutParams(wrapContent);
+            buttonBar.addView(pingButton);
         }
-        setContentView(root);
+        for (final var entry : Data.entries) {
+            final var button = new Button(this);
+            button.setText(entry.key());
+            button.setOnClickListener((v) -> testAll(textView, entry.sites()));
+            button.setLayoutParams(wrapContent);
+            buttonBar.addView(button);
+        }
+        buttonBar.setOrientation(LinearLayout.HORIZONTAL);
+        buttonBar.setLayoutParams(wrapContent);
+        return buttonBar;
     }
 
     @SuppressLint("SetTextI18n")
