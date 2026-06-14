@@ -299,10 +299,17 @@ public class MainActivity extends Activity {
         ViewGroup buttonBarScrollable = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
             buttonBarScrollable = new HorizontalScrollView(this);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+                buttonBarScrollable.setScrollbarFadingEnabled(false);
+            }
         }
         {
             final var wrapContent = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             final var buttonBar = new LinearLayout(this);
+            {
+                float bottomPadding = getResources().getDisplayMetrics().density * 4;
+                buttonBar.setPadding(0, 0, 0, (int) bottomPadding);
+            }
             {
                 final var pingButton = new Button(this);
                 pingButton.setText(R.string.ping);
