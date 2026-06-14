@@ -345,7 +345,7 @@ public class MainActivity extends Activity {
                 }
                 br.close();
             } catch (IOException e) {
-                textView.setText(e.getMessage());
+                runOnUiThread(() -> textView.setText(e.getMessage()));
             }
         }).start();
     }
