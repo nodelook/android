@@ -313,29 +313,22 @@ public class MainActivity extends Activity {
 
     @NonNull
     private LinearLayout getButtonsBar(TextView textView) {
-        final var wrapContent = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        final var buttonBar = new LinearLayout(this);
-        {
-            float bottomPadding = getResources().getDisplayMetrics().density * 4;
-            buttonBar.setPadding(0, 0, 0, (int) bottomPadding);
-        }
+        final var result = new LinearLayout(this);
+        result.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 4));
         {
             final var pingButton = new Button(this);
             pingButton.setText(R.string.ping);
             pingButton.setOnClickListener((v) -> ping(textView));
-            pingButton.setLayoutParams(wrapContent);
-            buttonBar.addView(pingButton);
+            result.addView(pingButton);
         }
         for (final var category : Data.categories) {
             final var button = new Button(this);
             button.setText(category.title());
             button.setOnClickListener((v) -> testAll(textView, category.members()));
-            button.setLayoutParams(wrapContent);
-            buttonBar.addView(button);
+            result.addView(button);
         }
-        buttonBar.setOrientation(LinearLayout.HORIZONTAL);
-        buttonBar.setLayoutParams(wrapContent);
-        return buttonBar;
+        result.setOrientation(LinearLayout.HORIZONTAL);
+        return result;
     }
 
     @SuppressLint("SetTextI18n")
