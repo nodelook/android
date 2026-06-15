@@ -278,16 +278,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final var textView = new TextView(this);
-        textView.setId(R.id.result);
-        textView.setFreezesText(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            textView.setTextIsSelectable(true);
-        }
-        textView.setHorizontallyScrolling(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            textView.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-        }
+        final var textView = createStatusTextView();
         final var scrollView = new ScrollView(this);
         scrollView.addView(textView);
         final var scrollViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
@@ -299,7 +290,7 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.setFitsSystemWindows(true);
         }
-        final var buttonBar = getButtonsBar(textView);
+        final var buttonBar = createButtonsBar(textView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
             final var buttonBarScrollable = new HorizontalScrollView(this);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
@@ -312,7 +303,22 @@ public class MainActivity extends Activity {
     }
 
     @NonNull
-    private LinearLayout getButtonsBar(@NonNull TextView textView) {
+    private TextView createStatusTextView() {
+        final var textView = new TextView(this);
+        textView.setId(R.id.result);
+        textView.setFreezesText(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            textView.setTextIsSelectable(true);
+        }
+        textView.setHorizontallyScrolling(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            textView.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+        }
+        return textView;
+    }
+
+    @NonNull
+    private LinearLayout createButtonsBar(@NonNull TextView textView) {
         final var result = new LinearLayout(this);
         result.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 4));
         {
