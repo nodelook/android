@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 9.2.0" type="baseline" client="gradle" dependencies="true" name="AGP (9.2.0)" variant="all" version="9.2.0">
+<issues format="6" by="lint 9.2.1" type="baseline" client="gradle" dependencies="true" name="AGP (9.2.1)" variant="all" version="9.2.1">
 
     <issue
         id="MinSdkTooLow"
@@ -8,8 +8,19 @@
         errorLine2="        ~~~~~~~~~~">
         <location
             file="build.gradle.kts"
-            line="11"
+            line="13"
             column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.test` appears to be unused"
+        errorLine1="    &lt;string name=&quot;test&quot;>Test&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="4"
+            column="13"/>
     </issue>
 
 </issues>
