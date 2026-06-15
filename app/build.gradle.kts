@@ -106,7 +106,7 @@ public class Data {
     public static record Category(@NonNull String title, @NonNull SiteInfo[] members) {
     }
 
-    public static final Category[] categories = {
+    public static final @NonNull Category[] categories = {
 $source
     };
 }"""
