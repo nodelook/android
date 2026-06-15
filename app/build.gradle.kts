@@ -100,8 +100,10 @@ val generateAppSrcTask by tasks.registering {
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId};
 
+import androidx.annotation.NonNull;
+
 public class Data {
-    public static record Category(String title, SiteInfo[] members) {
+    public static record Category(@NonNull String title, @NonNull SiteInfo[] members) {
     }
 
     public static final Category[] categories = {

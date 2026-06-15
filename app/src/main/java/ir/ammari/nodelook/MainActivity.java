@@ -220,7 +220,7 @@ public class MainActivity extends Activity {
 //        add(new SiteInfo("[Other] Pastebin", "pastebin.com/raw/ER5BRSx7", "200"));
 //    }};
 
-    private void testURL(Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, SiteInfo[] sites) {
+    private void testURL(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, @NonNull SiteInfo[] sites) {
         new Thread(() -> {
             var result = "Invalid result";
             try (
@@ -253,7 +253,7 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    private void displayResult(Map<String, String> status, @NonNull TextView textView, SiteInfo[] sites) {
+    private void displayResult(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo[] sites) {
         final var text = new SpannableStringBuilder();
         for (final var site : sites) {
             final var key = site.name();
@@ -312,7 +312,7 @@ public class MainActivity extends Activity {
     }
 
     @NonNull
-    private LinearLayout getButtonsBar(TextView textView) {
+    private LinearLayout getButtonsBar(@NonNull TextView textView) {
         final var result = new LinearLayout(this);
         result.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 4));
         {
@@ -332,7 +332,7 @@ public class MainActivity extends Activity {
     }
 
     @SuppressLint("SetTextI18n")
-    private void ping(TextView textView) {
+    private void ping(@NonNull TextView textView) {
         textView.setText("");
         new Thread(() -> {
             final var runtime = Runtime.getRuntime();
@@ -350,7 +350,7 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    private void testAll(TextView textView, @NonNull SiteInfo[] sites) {
+    private void testAll(@NonNull TextView textView, @NonNull SiteInfo[] sites) {
         final var status = new HashMap<String, String>();
         displayResult(status, textView, sites);
         for (final var site : sites) testURL(status, textView, site, sites);

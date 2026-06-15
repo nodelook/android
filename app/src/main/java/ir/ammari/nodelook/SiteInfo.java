@@ -1,4 +1,6 @@
 package ir.ammari.nodelook;
 
-public record SiteInfo(String name, String url, String status) {
+import androidx.annotation.NonNull;
+
+public record SiteInfo(@NonNull String name, @NonNull String url, @NonNull String status) {
 }
