@@ -102,14 +102,15 @@ val generateAppSrcTask by tasks.registering {
 
 import androidx.annotation.NonNull;
 
-public class Data {
-    public static record Category(@NonNull String title, @NonNull SiteInfo[] members) {
+class Data {
+    static record Category(@NonNull String title, @NonNull SiteInfo[] members) {
     }
 
-    public static final @NonNull Category[] categories = {
+    static final @NonNull Category[] categories = {
 $source
     };
-}"""
+}
+"""
         )
     }
 }
