@@ -68,6 +68,7 @@ dependencies {}
 val generateAppSrcTask by tasks.registering {
     operator fun File.div(child: String) = File(this, child)
     val dataDir = projectDir / ".." / "data"
+    if (!dataDir.exists()) error("Please make a rescursive clone in order to have the data/ folder")
     val jsonFiles = dataDir.listFiles { file ->
         when (file.name) {
             "dockerregistry.json", "global.json", "mirrors.json" -> false
