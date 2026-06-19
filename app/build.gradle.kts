@@ -4,6 +4,10 @@ plugins {
     alias(libs.plugins.com.android.application)
 }
 
+operator fun File.div(child: String) = File(this, child)
+val generatedAppSrcDir =
+    layout.buildDirectory.get().asFile / "generated" / "source" / "appsrc" / "main"
+
 android {
     namespace = "ir.ammari.nodelook"
     compileSdk = 37
@@ -55,47 +59,40 @@ android {
         baseline = file("lint-baseline.xml") // To update: ./gradlew updateLintBaseline
     }
 
-    sourceSets {
-        getByName("main") {
-            java.directories += layout.buildDirectory.dir("generated/source/appsrc/main").get()
-                .toString()
-        }
-    }
+    sourceSets { getByName("main") { java.directories += generatedAppSrcDir.toString() } }
 }
 
 dependencies {}
 
 val generateAppSrcTask by tasks.registering {
-    operator fun File.div(child: String) = File(this, child)
     val dataDir = projectDir / ".." / "data"
     if (!dataDir.exists()) error("Please make a rescursive clone in order to have the data/ folder")
     val jsonFiles = dataDir.listFiles { file ->
-        when (file.name) {
-            "dockerregistry.json", "global.json", "mirrors.json" -> false
-            else -> true
-        } && file.extension == "json"
+        file.name.startsWith(".") && file.extension == "json"
     } ?: emptyArray()
     inputs.files(jsonFiles)
-    val generatedAppSrcDir =
-        layout.buildDirectory.get().asFile / "generated" / "source" / "appsrc" / "main"
     val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
     val dataOutput = generateDir / "Data.java"
     outputs.files(dataOutput)
     doLast {
         generateDir.mkdirs()
         val jsonSlurper = JsonSlurper()
-        val source = jsonFiles.joinToString(",\n") {
-            val members = jsonSlurper.parse(it) as List<*>
-            val title = it.nameWithoutExtension.replaceFirstChar(Char::uppercase)
-            "            new Category(\"$title\", new SiteInfo[]{\n" + members.joinToString(",\n") {
+        val source = jsonFiles.joinToString(",\n") { file ->
+            val root = jsonSlurper.parse(file) as Map<*, *>
+            val items = root["items"] as List<*>
+            val title = (root["name"] as Map<*, *>)["en"] as String
+            val description = (root["description"] as Map<*, *>)["en"] as String
+            "            new Category(\"$title\", \"$description\", new SiteInfo[]{\n" + items.joinToString(
+                ",\n"
+            ) {
                 val item = it as Map<*, *>
                 val name = when (val name = item["name"]) {
                     is Map<*, *> -> name["en"] as String
                     else -> name as String
                 }
                 val url = item["url"] as String
-                val status = item["status"] as String
-                """                    new SiteInfo("$name", "$url", "$status")"""
+                val shouldContain = item["shouldContain"] as String
+                """                    new SiteInfo("$name", "$url", "$shouldContain")"""
             } + "\n            })"
         }
         dataOutput.writeText(
@@ -104,9 +101,6 @@ val generateAppSrcTask by tasks.registering {
 import androidx.annotation.NonNull;
 
 class Data {
-    static record Category(@NonNull String title, @NonNull SiteInfo[] members) {
-    }
-
     static final @NonNull Category[] categories = {
 $source
     };

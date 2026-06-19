@@ -29,27 +29,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends Activity {
-    private void testURL(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, @NonNull SiteInfo[] sites) {
+    private void testURL(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo site, @NonNull Category category) {
         new Thread(() -> {
-            var result = "Invalid result";
-            try (
-                    final var inputStream = new URL("https://" + site.url()).openStream();
-                    final var reader = new BufferedReader(new InputStreamReader(inputStream))
+            String result;
+            try (final var inputStream = new URL(site.url()).openStream(); //
+                 final var inputReader = new InputStreamReader(inputStream); //
+                 final var reader = new BufferedReader(inputReader) //
             ) {
-                final var expected = site.status();
                 final var responseBuilder = new StringBuilder();
                 String line;
                 while ((line = reader.readLine()) != null) {
                     responseBuilder.append(line);
                 }
                 final var response = responseBuilder.toString();
-                final var cleanResponse = response.replaceAll("[\\n\\r\\t .]", "");
-                final var cleanExpected = expected.replaceAll("[\\n\\r\\t .]", "");
-                if (cleanResponse.contains(cleanExpected)) {
-                    result = "success";
-                } else {
-                    result = "Unexpected response: " + response;
-                }
+                result = response.contains(site.shouldContain()) ? "success" : "Unexpected response: " + response;
             } catch (IOException e) {
                 result = e.getMessage();
                 Log.e("NodeLook", site.toString(), e);
@@ -57,14 +50,15 @@ public class MainActivity extends Activity {
             final var finalResult = result;
             runOnUiThread(() -> {
                 status.put(site.name(), finalResult);
-                displayResult(status, textView, sites);
+                displayResult(status, textView, category);
             });
         }).start();
     }
 
-    private void displayResult(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull SiteInfo[] sites) {
+    private void displayResult(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull Category category) {
         final var text = new SpannableStringBuilder();
-        for (final var site : sites) {
+        text.append(category.description()).append("\n\n");
+        for (final var site : category.items()) {
             final var key = site.name();
             text.append(key);
             if (status.containsKey(key)) {
@@ -139,7 +133,7 @@ public class MainActivity extends Activity {
         for (final var category : Data.categories) {
             final var button = new Button(this);
             button.setText(category.title());
-            button.setOnClickListener((v) -> testAll(textView, category.members()));
+            button.setOnClickListener((v) -> testAll(textView, category));
             result.addView(button);
         }
         result.setOrientation(LinearLayout.HORIZONTAL);
@@ -165,9 +159,9 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    private void testAll(@NonNull TextView textView, @NonNull SiteInfo[] sites) {
+    private void testAll(@NonNull TextView textView, @NonNull Category category) {
         final var status = new HashMap<String, String>();
-        displayResult(status, textView, sites);
-        for (final var site : sites) testURL(status, textView, site, sites);
+        displayResult(status, textView, category);
+        for (final var site : category.items()) testURL(status, textView, site, category);
     }
 }
