@@ -68,7 +68,7 @@ val generateAppSrcTask by tasks.registering {
     val dataDir = projectDir / ".." / "data"
     if (!dataDir.exists()) error("Please make a rescursive clone in order to have the data/ folder")
     val jsonFiles = dataDir.listFiles { file ->
-        file.name.startsWith(".") && file.extension == "json"
+        !file.name.startsWith(".") && file.extension == "json"
     } ?: emptyArray()
     inputs.files(jsonFiles)
     val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
@@ -78,18 +78,19 @@ val generateAppSrcTask by tasks.registering {
         generateDir.mkdirs()
         val jsonSlurper = JsonSlurper()
         val source = jsonFiles.joinToString(",\n") { file ->
+            println("Parsing $file")
             val root = jsonSlurper.parse(file) as Map<*, *>
             val items = root["items"] as List<*>
             val title = (root["name"] as Map<*, *>)["en"] as String
+            println("Title: $title")
             val description = (root["description"] as Map<*, *>)["en"] as String
+            println("Description: $description")
             "            new Category(\"$title\", \"$description\", new SiteInfo[]{\n" + items.joinToString(
                 ",\n"
             ) {
                 val item = it as Map<*, *>
-                val name = when (val name = item["name"]) {
-                    is Map<*, *> -> name["en"] as String
-                    else -> name as String
-                }
+                val name = (item["name"] as Map<*, *>)["en"] as String
+                println("Adding $name")
                 val url = item["url"] as String
                 val shouldContain = item["shouldContain"] as String
                 """                    new SiteInfo("$name", "$url", "$shouldContain")"""
