@@ -70,6 +70,7 @@ val generateAppSrcTask by tasks.registering {
     val jsonFiles = dataDir.listFiles { file ->
         !file.name.startsWith(".") && file.extension == "json"
     } ?: emptyArray()
+    jsonFiles.sortBy { it.name }
     inputs.files(jsonFiles)
     val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
     val dataOutput = generateDir / "Data.java"
