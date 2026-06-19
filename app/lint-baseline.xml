@@ -8,19 +8,8 @@
         errorLine2="        ~~~~~~~~~~">
         <location
             file="build.gradle.kts"
-            line="13"
+            line="17"
             column="9"/>
-    </issue>
-
-    <issue
-        id="UnusedResources"
-        message="The resource `R.string.test` appears to be unused"
-        errorLine1="    &lt;string name=&quot;test&quot;>Test&lt;/string>"
-        errorLine2="            ~~~~~~~~~~~">
-        <location
-            file="src/main/res/values/strings.xml"
-            line="4"
-            column="13"/>
     </issue>
 
 </issues>
