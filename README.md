@@ -1,4 +1,5 @@
 # NodeLook
+![NodeLook](https://raw.githubusercontent.com/nodelook/android/refs/heads/main/app/src/main/res/mipmap/ic_launcher.png)
 NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
 ## Install
