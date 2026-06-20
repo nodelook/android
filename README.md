@@ -1,5 +1,11 @@
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/app/src/main/res/mipmap/ic_launcher.png" alt='NodeLook logo' width="96" />
+
 # NodeLook
-![NodeLook](https://raw.githubusercontent.com/nodelook/android/refs/heads/main/app/src/main/res/mipmap/ic_launcher.png)
+![Version badge][Version badge]
+![Build badge][Build badge]
+<div align="left">
 NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
 ## Install
@@ -13,3 +19,6 @@ NodeLook is a general website checker for users facing internet restrictions. It
 - https://nightly.link/nodelook/android/workflows/upload-apk/main/NodeLook.zip
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
+
+[Version badge]: https://img.shields.io/github/v/release/nodelook/android?include_prereleases&sort=semver
+[Build badge]: https://img.shields.io/github/actions/workflow/status/nodelook/android/upload-apk.yml?branch=main
