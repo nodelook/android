@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/app/src/main/res/mipmap/ic_launcher.png" alt='NodeLook logo' width="96" />
+<img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/.idea/icon.svg" alt='NodeLook logo' width="96" />
 
 # NodeLook
 ![Version badge][Version badge]
