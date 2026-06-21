@@ -47,7 +47,6 @@ android {
 
     buildFeatures { resValues = false }
 
-
     lint {
         warningsAsErrors = true
         abortOnError = true

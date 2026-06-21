@@ -32,4 +32,7 @@ google-services.json
 # Android Profiling
 *.hprof
 
+.idea/
+!.idea/icon.svg
+
 .DS_Store
