@@ -59,7 +59,7 @@ android {
         baseline = file("lint-baseline.xml") // To update: ./gradlew updateLintBaseline
     }
 
-    sourceSets { getByName("main") { java.directories += generatedAppSrcDir.toString() } }
+    sourceSets { getByName("main").java.directories += generatedAppSrcDir.toString() }
 }
 
 dependencies {}
@@ -84,7 +84,8 @@ val generateAppSrcTask by tasks.registering {
             val items = root["items"] as List<*>
             val title = (root["name"] as Map<*, *>)["en"] as String
             println("Title: $title")
-            val description = (root["description"] as Map<*, *>)["en"] as String
+            val description =
+                ((root["description"] as Map<*, *>)["en"] as String).replace("\n", "\\n")
             println("Description: $description")
             "            new Category(\"$title\", \"$description\", new SiteInfo[]{\n" + items.joinToString(
                 ",\n"
