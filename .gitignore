@@ -34,5 +34,6 @@ google-services.json
 
 .idea/
 !.idea/icon.svg
+!.idea/.name
 
 .DS_Store

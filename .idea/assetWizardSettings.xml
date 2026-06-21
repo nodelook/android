@@ -80,7 +80,7 @@
                                               <map>
                                                 <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="$PROJECT_DIR$/.idea/icon.svg" />
-                                                <entry key="scalingPercent" value="45" />
+                                                <entry key="scalingPercent" value="50" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -126,7 +126,7 @@
                                               <map>
                                                 <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="$PROJECT_DIR$/.idea/icon.svg" />
-                                                <entry key="scalingPercent" value="45" />
+                                                <entry key="scalingPercent" value="50" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -160,6 +160,8 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="generateWebpIcons" value="false" />
+                                      <entry key="previewDensity" value="xxxhdpi" />
                                       <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
@@ -328,6 +330,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="previewDensity" value="xxxhdpi" />
                                       <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
