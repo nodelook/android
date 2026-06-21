@@ -59,7 +59,7 @@ android {
         baseline = file("lint-baseline.xml") // To update: ./gradlew updateLintBaseline
     }
 
-    sourceSets { getByName("main").java.directories += generatedAppSrcDir.toString() }
+    sourceSets { getByName("main").java.directories += generatedAppSrcDir.path }
 }
 
 dependencies {}
