@@ -133,10 +133,13 @@ public class MainActivity extends Activity {
         }
         for (final var category : Data.categories) {
             final var button = new Button(this);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                button.setBackgroundTintList(ColorStateList.valueOf(category.color()));
-            } else {
-                button.setBackgroundColor(category.color());
+            final var color = category.color();
+            if (color != 0) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    button.setBackgroundTintList(ColorStateList.valueOf(category.color()));
+                } else {
+                    button.setBackgroundColor(category.color());
+                }
             }
             button.setText(category.title());
             button.setOnClickListener((v) -> testAll(textView, category));

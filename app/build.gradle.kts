@@ -85,9 +85,9 @@ val generateAppSrcTask by tasks.registering {
             println("Title: $title")
             val description =
                 ((root["description"] as Map<*, *>)["en"] as String).replace("\n", "\\n")
-            val color = root["color"] as? String ?: "A0A0A0"
+            val color = (root["color"] as? String)?.replace(Regex("^#"), "0x") ?: "0"
             println("Description: $description")
-            "            new Category(\"$title\", \"$description\", 0xFF$color, new SiteInfo[]{\n" + items.joinToString(
+            "            new Category(\"$title\", \"$description\", $color, new SiteInfo[]{\n" + items.joinToString(
                 ",\n"
             ) {
                 val item = it as Map<*, *>
