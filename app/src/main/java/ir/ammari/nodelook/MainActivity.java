@@ -124,6 +124,12 @@ public class MainActivity extends Activity {
         result.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 4));
         {
             final var pingButton = new Button(this);
+            final var color = 0xFFEA4335;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                pingButton.setBackgroundTintList(ColorStateList.valueOf(color));
+            } else {
+                pingButton.setBackgroundColor(color);
+            }
             pingButton.setText(R.string.ping);
             pingButton.setOnClickListener((v) -> ping(textView));
             result.addView(pingButton);
