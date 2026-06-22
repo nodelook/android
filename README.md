@@ -1,11 +1,10 @@
-<div align="center">
+<img src=".idea/icon.svg" width="100px" align="left">
 
-<img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/.idea/icon.svg" alt='NodeLook logo' width="96" />
+### NodeLook
 
-# NodeLook
 ![Version badge][Version badge]
 ![Build badge][Build badge]
-<div align="left">
+
 NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
 ## Install
