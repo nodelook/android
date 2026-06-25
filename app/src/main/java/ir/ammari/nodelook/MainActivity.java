@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Bundle;
+import android.os.Bundle;com.tre.a11cellnetworkchanger
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
                 var result = status.get(key);
                 result = result == null ? "" : result;
                 final var success = result.equals("SUCCESS");
-                final var color = new ForegroundColorSpan(success ? 0xFF007500 : Color.RED);
+                final var color = new ForegroundColorSpan(success ? 0xFF34A853 : 0xFFEA4335);
                 final var spannable = new SpannableString(result);
                 spannable.setSpan(color, 0, result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 text.append(spannable);
@@ -76,16 +76,17 @@ public class MainActivity extends Activity {
                 text.append("…");
             }
             text.append("\n");
-            var url_result = site.url();
-            final var url_color = new ForegroundColorSpan(Color.BLUE);
-            final var url_spannable = new SpannableString(url_result);
-            url_spannable.setSpan(url_color, 0, url_result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            text.append(url_spannable);
+            {
+                final var url = site.url();
+                final var color = new ForegroundColorSpan(0xFF4285F4);
+                final var spannable = new SpannableString(url);
+                spannable.setSpan(color, 0, url.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                text.append(spannable);
+            }
             text.append("\n\n");
         }
         textView.setText(text);
     }
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
