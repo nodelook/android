@@ -60,6 +60,8 @@ public class MainActivity extends Activity {
         final var text = new SpannableStringBuilder();
         text.append(category.description()).append("\n\n");
         for (final var site : category.items()) {
+            text.append(site.url());
+            text.append("\n");
             final var key = site.name();
             text.append(key);
             if (status.containsKey(key)) {
@@ -74,10 +76,11 @@ public class MainActivity extends Activity {
             } else {
                 text.append("…");
             }
-            text.append("\n");
+            text.append("\n\n");
         }
         textView.setText(text);
     }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
