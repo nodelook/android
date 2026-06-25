@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
                     responseBuilder.append(line);
                 }
                 final var response = responseBuilder.toString();
-                result = response.contains(site.shouldContain()) ? "success" : "Unexpected response: " + response;
+                result = response.contains(site.shouldContain()) ? "SUCCESS" : "FAILED";
             } catch (IOException e) {
                 result = e.getMessage();
                 Log.e("NodeLook", site.toString(), e);
