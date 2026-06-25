@@ -62,15 +62,7 @@ public class MainActivity extends Activity {
         for (final var site : category.items()) {
             text.append("\n");
             final var key = site.name();
-            text.append("\n");
             text.append(key);
-            text.append("\n");
-            var url_result = site.url();
-            final var url_color = new ForegroundColorSpan(Color.BLUE);
-            final var url_spannable = new SpannableString(url_result);
-            url_spannable.setSpan(url_color, 0, url_result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            text.append(url_spannable);
-            text.append("\n");
             if (status.containsKey(key)) {
                 text.append(" - ");
                 var result = status.get(key);
@@ -83,6 +75,12 @@ public class MainActivity extends Activity {
             } else {
                 text.append("…");
             }
+            text.append("\n");
+            var url_result = site.url();
+            final var url_color = new ForegroundColorSpan(Color.BLUE);
+            final var url_spannable = new SpannableString(url_result);
+            url_spannable.setSpan(url_color, 0, url_result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            text.append(url_spannable);
             text.append("\n\n");
         }
         textView.setText(text);
