@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
                 final var response = responseBuilder.toString();
                 result = response.contains(site.shouldContain()) ? "SUCCESS" : "FAILED";
             } catch (IOException e) {
-                result = e.getMessage();
+                result = "ERROR";
                 Log.e("NodeLook", site.toString(), e);
             }
             final var finalResult = result;
