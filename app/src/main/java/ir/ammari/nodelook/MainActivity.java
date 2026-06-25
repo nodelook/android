@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
             var url_result = site.url();
             final var url_color = new ForegroundColorSpan(Color.BLUE);
             final var url_spannable = new SpannableString(url_result);
-            url_spannable.setSpan(url_color, 0, result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            url_spannable.setSpan(url_color, 0, url_result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             text.append(url_spannable);
             final var key = site.name();
             text.append(key);
