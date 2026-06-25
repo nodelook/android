@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
                 text.append(" - ");
                 var result = status.get(key);
                 result = result == null ? "" : result;
-                final var success = result.equals("success");
+                final var success = result.equals("SUCCESS");
                 final var color = new ForegroundColorSpan(success ? 0xFF007500 : Color.RED);
                 final var spannable = new SpannableString(result);
                 spannable.setSpan(color, 0, result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
