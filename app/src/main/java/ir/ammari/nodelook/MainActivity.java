@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 
     private void displayResult(@NonNull Map<String, String> status, @NonNull TextView textView, @NonNull Category category) {
         final var text = new SpannableStringBuilder();
-        text.append(category.description()).append("\n\n");
+        text.append(category.description()).append("\n");
         for (final var site : category.items()) {
             text.append("\n");
             final var key = site.name();
