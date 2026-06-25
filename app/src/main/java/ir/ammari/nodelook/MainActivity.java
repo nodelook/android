@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
         textView.setText("");
         new Thread(() -> {
             final var runtime = Runtime.getRuntime();
-            try (final var inputStream = runtime.exec("ping -c 4 google.com").getInputStream()) {
+            try (final var inputStream = runtime.exec("ping google.com").getInputStream()) {
                 final var br = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
                 while ((line = br.readLine()) != null) {
