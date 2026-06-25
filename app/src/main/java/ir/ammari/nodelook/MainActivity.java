@@ -60,8 +60,12 @@ public class MainActivity extends Activity {
         final var text = new SpannableStringBuilder();
         text.append(category.description()).append("\n\n");
         for (final var site : category.items()) {
-            text.append(site.url());
             text.append("\n");
+            var url_result = site.url();
+            final var url_color = new ForegroundColorSpan(Color.BLUE);
+            final var url_spannable = new SpannableString(url_result);
+            url_spannable.setSpan(url_color, 0, result.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            text.append(url_spannable);
             final var key = site.name();
             text.append(key);
             if (status.containsKey(key)) {
