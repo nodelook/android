@@ -13,6 +13,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 - https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook/
 - https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android
 - https://github.com/nodelook/android/releases
+- https://appteka.store/app/13ar290343
 ### Nightly
 - https://github.com/nodelook/android/actions
 - https://nightly.link/nodelook/android/workflows/upload-apk/main/NodeLook.zip
