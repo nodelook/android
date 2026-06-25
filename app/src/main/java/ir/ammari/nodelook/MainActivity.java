@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
                 spannable.setSpan(color, 0, url.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 text.append(spannable);
             }
-            text.append("\n\n");
+            text.append("\n");
         }
         textView.setText(text);
     }
