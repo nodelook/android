@@ -2,6 +2,7 @@ package ir.ammari.nodelook;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -163,20 +165,27 @@ public class MainActivity extends Activity {
     @SuppressLint("SetTextI18n")
     private void ping(@NonNull TextView textView) {
         textView.setText("");
-        new Thread(() -> {
-            final var runtime = Runtime.getRuntime();
-            try (final var inputStream = runtime.exec("ping google.com").getInputStream()) {
-                final var br = new BufferedReader(new InputStreamReader(inputStream));
-                String line;
-                while ((line = br.readLine()) != null) {
-                    final var finalLine = line;
-                    runOnUiThread(() -> textView.setText(textView.getText() + "\n" + finalLine));
+        final var edit = new EditText(this);
+        edit.setText("google.com");
+        new AlertDialog.Builder(this).setTitle("Enter a domain").setView(edit).setPositiveButton("Ping", (dialogInterface, which) -> {
+            textView.setText("");
+            final var domain = edit.getText();
+            new Thread(() -> {
+                final var runtime = Runtime.getRuntime();
+                try (final var inputStream = runtime.exec("ping -c 4 " + domain).getInputStream(); //
+                     final var inputStreamReader = new InputStreamReader(inputStream); //
+                     final var bufferedReader = new BufferedReader(inputStreamReader) //
+                ) {
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        final var finalLine = line;
+                        runOnUiThread(() -> textView.setText(textView.getText() + "\n" + finalLine));
+                    }
+                } catch (IOException e) {
+                    runOnUiThread(() -> textView.setText(e.getMessage()));
                 }
-                br.close();
-            } catch (IOException e) {
-                runOnUiThread(() -> textView.setText(e.getMessage()));
-            }
-        }).start();
+            }).start();
+        }).show();
     }
 
     private void testAll(@NonNull TextView textView, @NonNull Category category) {
