@@ -15,6 +15,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 - https://github.com/nodelook/android/releases
 - https://github.com/nodelook/android/actions
 - https://nightly.link/nodelook/android/workflows/upload-apk/main/NodeLook.zip
+- https://t.me/nodelook
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
 
