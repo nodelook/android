@@ -1,0 +1,1 @@
+Added Go Modules proxy support and customizable ping targets

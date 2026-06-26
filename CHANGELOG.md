@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## <a id="v1.3"></a>[v1.3] - 2026-06-26
+
+Added Go Modules proxy support and customizable ping targets
+
 ## <a id="v1.2"></a>[v1.2] - 2026-06-24
 
 Update data, redesign app icon, and add category colors
