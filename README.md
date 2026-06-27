@@ -8,15 +8,14 @@
 NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
 ## Install
+### Stable
 <a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-F--DROID-32A304?style=for-the-badge&logo=android" alt="GET IT ON F-DROID"></a>  
 <a href="https://appteka.store/search?q=ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-APPTEKA-32A304?style=for-the-badge&logo=android" alt="GET IT ON APPTEKA"></a>  
 <a href="https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>  
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-TELEGRAM-32A304?style=for-the-badge&logo=android" alt="GET IT ON TELEGRAM"></a>  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-BALE-32A304?style=for-the-badge&logo=android" alt="GET IT ON BALE"></a>  
-- https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook/
-- https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android
-- https://github.com/nodelook/android/actions
-- https://nightly.link/nodelook/android/workflows/upload-apk/main/NodeLook.zip
+### Nightly
+<a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
 
