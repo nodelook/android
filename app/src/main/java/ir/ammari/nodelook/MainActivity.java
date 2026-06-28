@@ -15,11 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -38,13 +40,10 @@ public class MainActivity extends Activity {
                  final var inputReader = new InputStreamReader(inputStream); //
                  final var reader = new BufferedReader(inputReader) //
             ) {
-                final var responseBuilder = new StringBuilder();
+                final var response = new StringBuilder();
                 String line;
-                while ((line = reader.readLine()) != null) {
-                    responseBuilder.append(line);
-                }
-                final var response = responseBuilder.toString();
-                result = response.contains(site.shouldContain()) ? "SUCCESS" : "FAILED";
+                while ((line = reader.readLine()) != null) response.append(line);
+                result = response.indexOf(site.shouldContain()) != -1 ? "SUCCESS" : "FAILED";
             } catch (IOException e) {
                 result = "ERROR";
                 Log.e("NodeLook", site.toString(), e);
@@ -128,48 +127,47 @@ public class MainActivity extends Activity {
         return textView;
     }
 
+    private float dp() {
+        return getResources().getDisplayMetrics().density;
+    }
+
     @NonNull
     private LinearLayout createButtonsBar(@NonNull TextView textView) {
         final var result = new LinearLayout(this);
-        result.setPadding(0, 0, 0, (int) (getResources().getDisplayMetrics().density * 4));
-        {
-            final var pingButton = new Button(this);
-            final var color = 0xFFEA4335;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                pingButton.setBackgroundTintList(ColorStateList.valueOf(color));
-            } else {
-                pingButton.setBackgroundColor(color);
-            }
-            pingButton.setText(R.string.ping);
-            pingButton.setOnClickListener((v) -> ping(textView));
-            result.addView(pingButton);
-        }
-        for (final var category : Data.categories) {
-            final var button = new Button(this);
-            final var color = category.color();
-            if (color != 0) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    button.setBackgroundTintList(ColorStateList.valueOf(category.color()));
-                } else {
-                    button.setBackgroundColor(category.color());
-                }
-            }
-            button.setText(category.title());
-            button.setOnClickListener((v) -> testAll(textView, category));
-            result.addView(button);
-        }
+        result.setPadding(0, 0, 0, (int) (dp() * 4));
+        result.addView(createFooterButton(getString(R.string.ping), 0xFFEA4335, (v) -> ping(textView)));
+        for (final var category : Data.categories)
+            result.addView(createFooterButton(category.title(), category.color(), (v) -> testAll(textView, category)));
         result.setOrientation(LinearLayout.HORIZONTAL);
         return result;
+    }
+
+    private View createFooterButton(@NonNull String title, @ColorInt int color, @NonNull View.OnClickListener onClickListener) {
+        final var button = new Button(this);
+        if (color != 0) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                button.setBackgroundTintList(ColorStateList.valueOf(color));
+            } else {
+                button.setBackgroundColor(color);
+            }
+        }
+        button.setText(title);
+        button.setOnClickListener(onClickListener);
+        return button;
     }
 
     @SuppressLint("SetTextI18n")
     private void ping(@NonNull TextView textView) {
         textView.setText("");
-        final var edit = new EditText(this);
-        edit.setText("google.com");
-        new AlertDialog.Builder(this).setTitle("Enter a domain").setView(edit).setPositiveButton("Ping", (dialogInterface, which) -> {
+        final var editText = new EditText(this);
+        editText.setText("google.com");
+        final var frame = new FrameLayout(this);
+        frame.addView(editText);
+        final var padding = (int) (20 * dp());
+        frame.setPadding(padding, 0, padding, 0);
+        new AlertDialog.Builder(this).setTitle("Enter a domain").setView(frame).setPositiveButton("Ping", (dialogInterface, which) -> {
             textView.setText("");
-            final var domain = edit.getText();
+            final var domain = editText.getText();
             new Thread(() -> {
                 final var runtime = Runtime.getRuntime();
                 try (final var inputStream = runtime.exec("ping -c 4 " + domain).getInputStream(); //
