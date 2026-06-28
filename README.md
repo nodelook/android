@@ -11,7 +11,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 ### Stable
 <a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-F--DROID-32A304?style=for-the-badge&logo=android" alt="GET IT ON F-DROID"></a>  
 <a href="https://appteka.store/search?q=ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-APPTEKA-32A304?style=for-the-badge&logo=android" alt="GET IT ON APPTEKA"></a>  
-<a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-ODD-MARKET-32A304?style=for-the-badge&logo=android" alt="GET IT ON ODD-MARKET"></a>  
+<a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-ODD--MARKET-32A304?style=for-the-badge&logo=android" alt="GET IT ON ODD-MARKET"></a>  
 <a href="https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>  
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-TELEGRAM_CHANNEL-32A304?style=for-the-badge&logo=android" alt="GET IT ON TELEGRAM CHANNEL"></a>  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-BALE_CHANNEL-32A304?style=for-the-badge&logo=android" alt="GET IT ON BALE CHANNEL"></a>  
