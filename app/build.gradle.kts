@@ -18,7 +18,6 @@ android {
         targetSdk = 37
         versionCode = 4
         versionName = "1.3"
-        installLocation = "auto"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.generatedDensities()
