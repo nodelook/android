@@ -65,7 +65,7 @@ android {
         baseline = file("lint-baseline.xml") // To update: ./gradlew updateLintBaseline
     }
 
-    sourceSets { getByName("main").java.directories += generatedAppSrcDir.path }
+    sourceSets { getByName("main").kotlin.directories += generatedAppSrcDir.path }
 }
 
 dependencies {}
@@ -79,12 +79,12 @@ val generateAppSrcTask by tasks.registering {
     jsonFiles.sortBy { it.name }
     inputs.files(jsonFiles)
     val generateDir = generatedAppSrcDir / "ir" / "ammari" / "nodelook"
-    val dataOutput = generateDir / "Data.java"
+    val dataOutput = generateDir / "Categories.kt"
     outputs.files(dataOutput)
     doLast {
         generateDir.mkdirs()
         val jsonSlurper = JsonSlurper()
-        val source = jsonFiles.joinToString(",\n") { file ->
+        val source = jsonFiles.joinToString("\n") { file ->
             println("Parsing $file")
             val root = jsonSlurper.parse(file) as Map<*, *>
             val items = root["items"] as List<*>
@@ -94,27 +94,23 @@ val generateAppSrcTask by tasks.registering {
                 ((root["description"] as Map<*, *>)["en"] as String).replace("\n", "\\n")
             val color = (root["color"] as? String)?.replace(Regex("^#"), "0x") ?: "0"
             println("Description: $description")
-            "            new Category(\"$title\", \"$description\", $color, new SiteInfo[]{\n" + items.joinToString(
-                ",\n"
+            "    Category(\n      \"$title\", \"$description\", $color.toInt(), listOf<SiteInfo>(\n" + items.joinToString(
+                "\n"
             ) {
                 val item = it as Map<*, *>
                 val name = (item["name"] as Map<*, *>)["en"] as String
                 println("Adding $name")
                 val url = item["url"] as String
                 val shouldContain = item["shouldContain"] as String
-                """                    new SiteInfo("$name", "$url", "$shouldContain")"""
-            } + "\n            })"
+                """            SiteInfo("$name", "$url", "$shouldContain"),"""
+            } + "\n        )\n    ),"
         }
         dataOutput.writeText(
-            """package ${android.defaultConfig.applicationId};
+            """package ${android.defaultConfig.applicationId}
 
-import androidx.annotation.NonNull;
-
-class Data {
-    static final @NonNull Category[] categories = {
+val categories = listOf<Category>(
 $source
-    };
-}
+)
 """
         )
     }
