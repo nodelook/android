@@ -94,7 +94,12 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 ((root["description"] as Map<*, *>)["en"] as String).replace("\n", "\\n")
             val color = (root["color"] as? String)?.replace(Regex("^#"), "0x") ?: "0"
             println("Description: $description")
-            "    Category(\n      \"$title\", \"$description\", $color.toInt(), listOf<SiteInfo>(\n" + items.joinToString(
+            """    Category(
+        title = "$title",
+        description = "$description",
+        color = $color.toInt(),
+        items = listOf<SiteInfo>(
+""" + items.joinToString(
                 "\n"
             ) {
                 val item = it as Map<*, *>
@@ -102,9 +107,13 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 println("Adding $name")
                 val url = item["url"] as String
                 val shouldContain = item["shouldContain"] as String
-                """            SiteInfo("$name", "$url", "$shouldContain"),"""
+                """            SiteInfo(
+                name = "$name",
+                url = "$url",
+                shouldContain = "$shouldContain",
+            ),"""
             } + "\n        )\n    ),"
-        }
+        } + ","
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId}
 
