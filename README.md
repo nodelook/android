@@ -18,6 +18,14 @@ NodeLook is a general website checker for users facing internet restrictions. It
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-BALE_CHANNEL-32A304?style=for-the-badge&logo=android" alt="GET IT ON BALE CHANNEL"></a>  
 ### Nightly
 <a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>
+## Screenshots
+<table>
+  <tr>
+    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="NodeLook screenshot 1" width="100%"></td>
+    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="NodeLook screenshot 2" width="100%"></td>
+  </tr>
+</table>
+
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
 
