@@ -70,7 +70,7 @@ android {
 
 dependencies {}
 
-val generateAppSrcTask by tasks.registering {
+val generateAppSrcTask = tasks.register("generateAppSrcTask") {
     val dataDir = projectDir / ".." / "data"
     if (!dataDir.exists()) error("Please make a rescursive clone in order to have the data/ folder")
     val jsonFiles = dataDir.listFiles { file ->
