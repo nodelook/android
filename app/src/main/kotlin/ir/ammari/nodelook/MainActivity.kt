@@ -169,8 +169,8 @@ class MainActivity : Activity() {
                             BufferedReader(inputStreamReader).use { bufferedReader ->
                                 generateSequence { bufferedReader.readLine() }.forEach { line ->
                                     runOnUiThread {
-                                        textView.text = textView.getText().toString().let {
-                                            if (it.isNotEmpty()) it + "\n" + line else line
+                                        textView.text = textView.getText().let {
+                                            if (it.isNotEmpty()) "$it\n$line" else line
                                         }
                                     }
                                 }
