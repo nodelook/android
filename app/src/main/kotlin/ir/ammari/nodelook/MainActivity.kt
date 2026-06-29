@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.text.Spannable
@@ -12,7 +13,6 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -23,6 +23,7 @@ import android.widget.TextView
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
+import kotlin.math.roundToInt
 
 class MainActivity : Activity() {
     private fun testURL(
@@ -80,23 +81,43 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val textView = createStatusTextView()
-        val scrollView = ScrollView(this)
-        scrollView.addView(textView)
-        val scrollViewParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0)
-        scrollViewParams.weight = 1f
-        scrollView.setLayoutParams(scrollViewParams)
         val root = LinearLayout(this)
-        root.orientation = LinearLayout.VERTICAL
-        root.addView(scrollView)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.fitsSystemWindows = true
         }
-        val buttonBar = createButtonsBar(textView)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-            val buttonBarScrollable = HorizontalScrollView(this)
-            buttonBarScrollable.addView(buttonBar)
-            root.addView(buttonBarScrollable)
-        } else root.addView(buttonBar)
+        val scrollView = ScrollView(this)
+        scrollView.addView(textView)
+        run {
+            val buttonsBar = LinearLayout(this)
+            buttonsBar.addView(
+                createButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
+                    ping(textView)
+                },
+            )
+            categories.map { category ->
+                createButton(category.title, category.color) { testAll(textView, category) }
+            }.forEach(buttonsBar::addView)
+            val padding = 4.dp
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                scrollView.setPadding(padding, 0, padding, 0)
+                buttonsBar.setPadding(padding, 0, padding, 0)
+                root.orientation = LinearLayout.HORIZONTAL
+                buttonsBar.orientation = LinearLayout.VERTICAL
+                val buttonBarScrollable = ScrollView(this)
+                buttonBarScrollable.addView(buttonsBar)
+                root.addView(buttonBarScrollable)
+            } else {
+                buttonsBar.setPadding(0, 0, 0, padding)
+                root.orientation = LinearLayout.VERTICAL
+                buttonsBar.orientation = LinearLayout.HORIZONTAL
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                    val buttonBarScrollable = HorizontalScrollView(this)
+                    buttonBarScrollable.addView(buttonsBar)
+                    root.addView(buttonBarScrollable)
+                } else root.addView(buttonsBar)
+            }
+        }
+        root.addView(scrollView)
         setContentView(root)
     }
 
@@ -114,24 +135,9 @@ class MainActivity : Activity() {
         return textView
     }
 
-    private val dp: Float get() = resources.displayMetrics.density
+    private val Int.dp: Int get() = (this * resources.displayMetrics.density).roundToInt()
 
-    private fun createButtonsBar(textView: TextView): LinearLayout {
-        val buttonsBar = LinearLayout(this)
-        buttonsBar.setPadding(0, 0, 0, (dp * 4).toInt())
-        buttonsBar.addView(
-            createFooterButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
-                ping(textView)
-            },
-        )
-        categories.map { category ->
-            createFooterButton(category.title, category.color) { testAll(textView, category) }
-        }.forEach(buttonsBar::addView)
-        buttonsBar.orientation = LinearLayout.HORIZONTAL
-        return buttonsBar
-    }
-
-    private fun createFooterButton(
+    private fun createButton(
         title: String,
         color: Int,
         action: View.OnClickListener,
@@ -153,7 +159,7 @@ class MainActivity : Activity() {
         editText.setText("google.com")
         val frame = FrameLayout(this)
         frame.addView(editText)
-        val padding = (20 * dp).toInt()
+        val padding = 20.dp
         frame.setPadding(padding, 0, padding, 0)
         AlertDialog.Builder(this).setTitle(
             R.string.ping_dialog_title

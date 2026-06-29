@@ -11,7 +11,7 @@
         tools:ignore="UnusedAttribute">
         <activity
             android:name=".MainActivity"
-            android:configChanges="keyboardHidden|screenSize|screenLayout|orientation"
+            android:configChanges="keyboardHidden|screenSize|screenLayout"
             android:exported="true"
             android:theme="@style/Theme">
             <intent-filter>
