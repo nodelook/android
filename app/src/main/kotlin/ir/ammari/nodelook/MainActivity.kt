@@ -43,7 +43,7 @@ class MainActivity : Activity() {
     }
 
     private fun displayResult(
-        status: MutableMap<String, String>,
+        status: Map<String, String>,
         textView: TextView,
         category: Category,
     ) {
