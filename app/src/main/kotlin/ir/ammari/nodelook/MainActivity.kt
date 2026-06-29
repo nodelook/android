@@ -155,9 +155,9 @@ class MainActivity : Activity() {
         frame.addView(editText)
         val padding = (20 * dp).toInt()
         frame.setPadding(padding, 0, padding, 0)
-        AlertDialog.Builder(this).setTitle("Enter a domain").setView(frame).setPositiveButton(
-            "Ping"
-        ) { _, _ ->
+        AlertDialog.Builder(this).setTitle(
+            R.string.ping_dialog_title
+        ).setView(frame).setPositiveButton(R.string.ping) { _, _ ->
             textView.text = ""
             val domain = editText.getText()
             Thread {

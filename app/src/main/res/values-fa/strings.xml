@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">گره‌نما</string>
     <string name="ping">پینگ</string>
+    <string name="ping_dialog_title">یک دامنه وارد کنید</string>
 </resources>
