@@ -167,12 +167,9 @@ class MainActivity : Activity() {
                     Runtime.getRuntime().exec("ping -c 4 $domain").inputStream.use { inputStream ->
                         InputStreamReader(inputStream).use { inputStreamReader ->
                             BufferedReader(inputStreamReader).use { bufferedReader ->
-                                var line: String
-                                while ((bufferedReader.readLine().also { line = it }) != null) {
-                                    val finalLine = line
+                                generateSequence { bufferedReader.readLine() }.forEach { line ->
                                     runOnUiThread {
-                                        textView.text =
-                                            textView.getText().toString() + "\n" + finalLine
+                                        textView.text = textView.getText().toString() + "\n" + line
                                     }
                                 }
                             }
