@@ -111,7 +111,7 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 url = "$url",
                 shouldContain = "$shouldContain",
             ),"""
-            } + "\n        )\n    ),"
+            } + "\n        ),\n    ),"
         }
         dataOutput.writeText(
             """package ${android.defaultConfig.applicationId}
