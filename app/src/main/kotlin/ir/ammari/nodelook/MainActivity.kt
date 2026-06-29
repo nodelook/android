@@ -137,12 +137,10 @@ class MainActivity : Activity() {
         action: View.OnClickListener,
     ): View {
         val button = Button(this)
-        if (color != 0) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                button.setBackgroundTintList(ColorStateList.valueOf(color))
-            } else {
-                button.setBackgroundColor(color)
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            button.setBackgroundTintList(ColorStateList.valueOf(color))
+        } else {
+            button.setBackgroundColor(color)
         }
         button.text = title
         button.setOnClickListener(action)
