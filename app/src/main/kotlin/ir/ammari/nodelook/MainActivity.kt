@@ -117,18 +117,18 @@ class MainActivity : Activity() {
     private val dp: Float get() = resources.displayMetrics.density
 
     private fun createButtonsBar(textView: TextView): LinearLayout {
-        val result = LinearLayout(this)
-        result.setPadding(0, 0, 0, (dp * 4).toInt())
-        result.addView(
+        val buttonsBar = LinearLayout(this)
+        buttonsBar.setPadding(0, 0, 0, (dp * 4).toInt())
+        buttonsBar.addView(
             createFooterButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
                 ping(textView)
             },
         )
         categories.map { category ->
             createFooterButton(category.title, category.color) { testAll(textView, category) }
-        }.forEach(result::addView)
-        result.orientation = LinearLayout.HORIZONTAL
-        return result
+        }.forEach(buttonsBar::addView)
+        buttonsBar.orientation = LinearLayout.HORIZONTAL
+        return buttonsBar
     }
 
     private fun createFooterButton(
