@@ -13,6 +13,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -118,6 +119,9 @@ class MainActivity : Activity() {
             }
         }
         root.addView(scrollView)
+        val matchParentParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        scrollView.setLayoutParams(matchParentParams)
+        textView.setLayoutParams(matchParentParams)
         setContentView(root)
     }
 
