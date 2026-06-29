@@ -81,47 +81,77 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val textView = createStatusTextView()
-        val root = LinearLayout(this)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            root.fitsSystemWindows = true
-        }
-        val scrollView = ScrollView(this)
-        scrollView.addView(textView)
-        run {
-            val buttonsBar = LinearLayout(this)
-            buttonsBar.addView(
-                createButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
-                    ping(textView)
-                },
-            )
-            categories.map { category ->
-                createButton(category.title, category.color) { testAll(textView, category) }
-            }.forEach(buttonsBar::addView)
-            val padding = 4.dp
-            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                scrollView.setPadding(padding, 0, padding, 0)
-                buttonsBar.setPadding(padding, 0, padding, 0)
-                root.orientation = LinearLayout.HORIZONTAL
-                buttonsBar.orientation = LinearLayout.VERTICAL
-                val buttonBarScrollable = ScrollView(this)
-                buttonBarScrollable.addView(buttonsBar)
-                root.addView(buttonBarScrollable)
-            } else {
-                buttonsBar.setPadding(0, 0, 0, padding)
-                root.orientation = LinearLayout.VERTICAL
-                buttonsBar.orientation = LinearLayout.HORIZONTAL
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-                    val buttonBarScrollable = HorizontalScrollView(this)
-                    buttonBarScrollable.addView(buttonsBar)
-                    root.addView(buttonBarScrollable)
-                } else root.addView(buttonsBar)
+
+        val root = LinearLayout(this).apply {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                fitsSystemWindows = true
             }
         }
+
+        val scrollView = ScrollView(this).apply {
+            addView(textView)
+        }
+
+        val buttonsBar = LinearLayout(this)
+
+        buttonsBar.addView(
+            createButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
+                ping(textView)
+            }
+        )
+
+        categories.map { category ->
+            createButton(category.title, category.color) {
+                testAll(textView, category)
+            }
+        }.forEach(buttonsBar::addView)
+
+        val padding = 4.dp
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            root.orientation = LinearLayout.HORIZONTAL
+
+            scrollView.setPadding(padding, 0, padding, 0)
+            buttonsBar.setPadding(padding, 0, padding, 0)
+            buttonsBar.orientation = LinearLayout.VERTICAL
+
+            val buttonBarScrollable = ScrollView(this).apply {
+                addView(buttonsBar)
+            }
+
+            root.addView(buttonBarScrollable)
+
+            scrollView.layoutParams = LinearLayout.LayoutParams(
+                0,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                1f
+            )
+        } else {
+            root.orientation = LinearLayout.VERTICAL
+
+            buttonsBar.setPadding(0, 0, 0, padding)
+            buttonsBar.orientation = LinearLayout.HORIZONTAL
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                val buttonBarScrollable = HorizontalScrollView(this).apply {
+                    addView(buttonsBar)
+                }
+                root.addView(buttonBarScrollable)
+            } else {
+                root.addView(buttonsBar)
+            }
+
+            scrollView.layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0,
+                1f
+            )
+        }
+
         root.addView(scrollView)
-        val matchParentParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        scrollView.setLayoutParams(matchParentParams)
-        textView.setLayoutParams(matchParentParams)
+
         setContentView(root)
     }
 
