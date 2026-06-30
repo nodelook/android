@@ -119,9 +119,6 @@ class MainActivity : Activity() {
             }
         }
         root.addView(scrollView)
-        val matchParentParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        scrollView.setLayoutParams(matchParentParams)
-        textView.setLayoutParams(matchParentParams)
         setContentView(root)
     }
 
