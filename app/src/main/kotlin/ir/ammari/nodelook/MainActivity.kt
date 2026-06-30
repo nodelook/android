@@ -20,7 +20,6 @@ import android.widget.EditText
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.Switch
 import android.widget.TextView
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -173,16 +172,16 @@ class MainActivity : Activity() {
         root.addView(editText)
         root.orientation = LinearLayout.VERTICAL
         val padding = 20.dp
-        val v6CheckBox = CheckBox(this)
-        v6CheckBox.setOnCheckedChangeListener { _, value ->
+        val ipv6CheckBox = CheckBox(this)
+        ipv6CheckBox.setOnCheckedChangeListener { _, value ->
             if (editText.text.toString() == "google.com" && value) {
                 editText.setText("ipv6.google.com")
             } else if (editText.text.toString() == "ipv6.google.com" && !value) {
                 editText.setText("google.com")
             }
         }
-        v6CheckBox.text = "IPv6"
-        root.addView(v6CheckBox)
+        ipv6CheckBox.text = "IPv6"
+        root.addView(ipv6CheckBox)
         root.setPadding(padding, 0, padding, 0)
         AlertDialog.Builder(this).setTitle(
             R.string.ping_dialog_title
@@ -191,7 +190,7 @@ class MainActivity : Activity() {
             val domain = editText.getText().toString()
             Thread {
                 runCatching {
-                    val ping = if (v6CheckBox.isChecked) "ping6" else "ping"
+                    val ping = if (ipv6CheckBox.isChecked) "ping6" else "ping"
                     Runtime.getRuntime().exec(
                         arrayOf(ping, "-c4", domain)
                     ).inputStream.use { inputStream ->
