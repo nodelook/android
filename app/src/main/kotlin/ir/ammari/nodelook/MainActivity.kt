@@ -118,6 +118,12 @@ class MainActivity : Activity() {
                 } else root.addView(buttonsBar)
             }
         }
+        scrollView.setLayoutParams(
+            ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        )
         root.addView(scrollView)
         setContentView(root)
     }
