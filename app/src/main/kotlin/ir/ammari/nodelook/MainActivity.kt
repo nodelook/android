@@ -15,11 +15,12 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import android.widget.Switch
 import android.widget.TextView
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -164,18 +165,36 @@ class MainActivity : Activity() {
     private fun ping(textView: TextView) {
         val editText = EditText(this)
         editText.setText("google.com")
-        val frame = FrameLayout(this)
-        frame.addView(editText)
+        editText.layoutParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+        )
+        val root = LinearLayout(this)
+        root.addView(editText)
+        root.orientation = LinearLayout.VERTICAL
         val padding = 20.dp
-        frame.setPadding(padding, 0, padding, 0)
+        val v6CheckBox = CheckBox(this)
+        v6CheckBox.setOnCheckedChangeListener { _, value ->
+            if (editText.text.toString() == "google.com" && value) {
+                editText.setText("ipv6.google.com")
+            } else if (editText.text.toString() == "ipv6.google.com" && !value) {
+                editText.setText("google.com")
+            }
+        }
+        v6CheckBox.text = "IPv6"
+        root.addView(v6CheckBox)
+        root.setPadding(padding, 0, padding, 0)
         AlertDialog.Builder(this).setTitle(
             R.string.ping_dialog_title
-        ).setView(frame).setPositiveButton(R.string.ping) { _, _ ->
+        ).setView(root).setPositiveButton(R.string.ping) { _, _ ->
             textView.text = ""
-            val domain = editText.getText()
+            val domain = editText.getText().toString()
             Thread {
                 runCatching {
-                    Runtime.getRuntime().exec("ping -c 4 $domain").inputStream.use { inputStream ->
+                    val ping = if (v6CheckBox.isChecked) "ping6" else "ping"
+                    Runtime.getRuntime().exec(
+                        arrayOf(ping, "-c4", domain)
+                    ).inputStream.use { inputStream ->
                         InputStreamReader(inputStream).use { inputStreamReader ->
                             BufferedReader(inputStreamReader).use { bufferedReader ->
                                 generateSequence { bufferedReader.readLine() }.forEach { line ->
