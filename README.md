@@ -15,6 +15,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 <a href="https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-IZZY--ON--DROID-32A304?style=for-the-badge&logo=android" alt="GET IT ON IZZY-ON-DROID"></a>  
 <a href="https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>  
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-TELEGRAM_CHANNEL-32A304?style=for-the-badge&logo=android" alt="GET IT ON TELEGRAM CHANNEL"></a>  
+<a href="https://neonapps.ru/?app=695"><img src="https://img.shields.io/badge/GET_IT_ON-NEON_APPS_GOOGLE_DRIVE-32A304?style=for-the-badge&logo=android" alt="GET IT ON NEON APPS GOOGLE DRIVE"></a>  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/GET_IT_ON-BALE_CHANNEL-32A304?style=for-the-badge&logo=android" alt="GET IT ON BALE CHANNEL"></a>  
 ### Nightly
 <a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GET_IT_ON-GITHUB-32A304?style=for-the-badge&logo=android" alt="GET IT ON GITHUB"></a>
