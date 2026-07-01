@@ -5,6 +5,10 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.content.res.Configuration
+import android.media.AudioAttributes
+import android.media.AudioFormat
+import android.media.AudioManager
+import android.media.AudioTrack
 import android.os.Build
 import android.os.Bundle
 import android.text.Spannable
@@ -14,12 +18,6 @@ import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.media.AudioAttributes
-import android.media.AudioFormat
-import android.media.AudioTrack
-import android.media.AudioManager
-import kotlin.math.PI
-import kotlin.math.sin
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -30,7 +28,9 @@ import android.widget.TextView
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
+import kotlin.math.PI
 import kotlin.math.roundToInt
+import kotlin.math.sin
 
 class MainActivity : Activity() {
     private fun testURL(
@@ -46,8 +46,8 @@ class MainActivity : Activity() {
             runOnUiThread {
                 status[site.name] = result
                 displayResult(status, textView, category)
+                if (status.keys.size == category.items.size) playBeep(1200.0, 100)
             }
-            playBeep(1200.0,100)
         }.start()
     }
 
@@ -86,6 +86,7 @@ class MainActivity : Activity() {
         textView.text = text
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val textView = createStatusTextView()
@@ -137,6 +138,7 @@ class MainActivity : Activity() {
     }
 
     fun playBeep(freq: Double, durationMs: Int) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return
         val sampleRate = 44100
         val samples = sampleRate * durationMs / 1000
 
