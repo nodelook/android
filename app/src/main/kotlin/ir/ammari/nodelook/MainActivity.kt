@@ -14,6 +14,12 @@ import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.media.AudioAttributes
+import android.media.AudioFormat
+import android.media.AudioTrack
+import android.media.AudioManager
+import kotlin.math.PI
+import kotlin.math.sin
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -41,6 +47,7 @@ class MainActivity : Activity() {
                 status[site.name] = result
                 displayResult(status, textView, category)
             }
+            playBeep(1200.0,100)
         }.start()
     }
 
@@ -127,6 +134,36 @@ class MainActivity : Activity() {
         )
         root.addView(scrollView)
         setContentView(root)
+    }
+
+    fun playBeep(freq: Double, durationMs: Int) {
+        val sampleRate = 44100
+        val samples = sampleRate * durationMs / 1000
+
+        val buffer = ShortArray(samples)
+
+        for (i in buffer.indices) {
+            val angle = 2.0 * PI * i * freq / sampleRate
+            buffer[i] = (sin(angle) * Short.MAX_VALUE).toInt().toShort()
+        }
+
+        val audioTrack = AudioTrack(
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build(),
+            AudioFormat.Builder()
+                .setSampleRate(sampleRate)
+                .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
+                .build(),
+            buffer.size * 2,
+            AudioTrack.MODE_STATIC,
+            AudioManager.AUDIO_SESSION_ID_GENERATE
+        )
+
+        audioTrack.write(buffer, 0, buffer.size)
+        audioTrack.play()
     }
 
     private fun createStatusTextView(): TextView {
