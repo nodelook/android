@@ -16,8 +16,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-V1.3-32A304?style=for-the-badge&logo=android" alt="TELEGRAM CHANNEL V1.3"></a>  
 <a href="https://neonapps.ru/?app=695"><img src="https://img.shields.io/badge/NEON_APPS_-->_GOOGLE_DRIVE-V1.3-32A304?style=for-the-badge&logo=android" alt="NEON APPS -> GOOGLE DRIVE V1.3"></a>  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/BALE_CHANNEL-V1.3-32A304?style=for-the-badge&logo=android" alt="BALE CHANNEL V1.3"></a>  
-### Nightly
-<a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB-32A304?style=for-the-badge&logo=android" alt="GITHUB"></a>
+<a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB-NIGHTLY-32A304?style=for-the-badge&logo=android" alt="GITHUB NIGHTLY"></a>
 ## Screenshots
 <table>
   <tr>
