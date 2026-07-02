@@ -34,7 +34,7 @@ import kotlin.math.sin
 
 class MainActivity : Activity() {
     private fun testURL(
-        status: MutableMap<String, String>,
+        status: MutableMap<SiteInfo, String>,
         textView: TextView,
         site: SiteInfo,
         category: Category,
@@ -44,7 +44,7 @@ class MainActivity : Activity() {
                 if (site.shouldContain in URL(site.url).readText()) "SUCCESS" else "FAILED"
             }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { "ERROR" }
             runOnUiThread {
-                status[site.name] = result
+                status[site] = result
                 displayResult(status, textView, category)
                 if (status.keys.size == category.items.size) playBeep(1200.0, 100)
             }
@@ -52,7 +52,7 @@ class MainActivity : Activity() {
     }
 
     private fun displayResult(
-        status: Map<String, String>,
+        status: Map<SiteInfo, String>,
         textView: TextView,
         category: Category,
     ) {
@@ -60,11 +60,10 @@ class MainActivity : Activity() {
         text.append(category.description).append("\n")
         category.items.forEach { site ->
             text.append("\n")
-            val key = site.name
-            text.append(key)
-            if (status.containsKey(key)) {
+            text.append(site.name)
+            if (status.containsKey(site)) {
                 text.append(" - ")
-                val result = status[key] ?: ""
+                val result = status[site] ?: ""
                 val success = result == "SUCCESS"
                 val color = ForegroundColorSpan((if (success) 0xFF34A853 else 0xFFEA4335).toInt())
                 val spannable = SpannableString(result)
@@ -144,7 +143,7 @@ class MainActivity : Activity() {
 
         val buffer = ShortArray(samples)
 
-        for (i in buffer.indices) {
+        buffer.indices.forEach { i ->
             val angle = 2.0 * PI * i * freq / sampleRate
             buffer[i] = (sin(angle) * Short.MAX_VALUE).toInt().toShort()
         }
@@ -252,7 +251,7 @@ class MainActivity : Activity() {
     }
 
     private fun testAll(textView: TextView, category: Category) {
-        val status = HashMap<String, String>()
+        val status = HashMap<SiteInfo, String>()
         displayResult(status, textView, category)
         category.items.forEach { site -> testURL(status, textView, site, category) }
     }
