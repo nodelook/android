@@ -3,4 +3,6 @@
     <string name="app_name">NodeLook</string>
     <string name="ping">Ping</string>
     <string name="ping_dialog_title">Enter a domain</string>
+    <string name="welcome_message">Welcome to
+        NodeLook\n\nEmail: nodelook@proton.me\nSource Code: https://github.com/nodelook/android</string>
 </resources>
