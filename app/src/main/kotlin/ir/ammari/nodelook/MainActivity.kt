@@ -89,7 +89,7 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val textView = createStatusTextView()
-        textView.text = R.string.welcome_message
+        textView.setText(R.string.welcome_message)
         val root = LinearLayout(this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             root.fitsSystemWindows = true
