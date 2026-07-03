@@ -94,7 +94,7 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
             println("Description: $description")
             """    Category(
         title = "$title",
-        description = ${"\"\"\""}$description${"\"\"\""},
+        description = ${"$$\"\"\""}$description${"\"\"\""},
         color = $color.toInt(),
         items = listOf<SiteInfo>(
 """ + items.joinToString(
