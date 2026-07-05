@@ -5,7 +5,7 @@
 ![Version badge][Version badge]
 ![Build badge][Build badge]
 
-NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
+گره‌نما یک بررسی‌کننده عمومی وب‌سایت برای کاربرانی است که با محدودیت‌های اینترنت مواجه‌اند. این برنامه به کاربران کمک می‌کند تا مشخص کنند آیا یک سرویس از طریق اتصال فعلی قابل دسترسی است یا فیلتر شده و در دسترس نیست.
 
 ## Get it on
 <a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/F--DROID-V1.3-32A304?style=for-the-badge&logo=android" alt="F-DROID V1.3"></a>  
