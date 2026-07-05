@@ -40,12 +40,15 @@ class MainActivity : Activity() {
                 if (site.shouldContain in URL(site.url).readText()) "SUCCESS" else "FAILED"
             }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { "ERROR" }
             runOnUiThread {
+                if (category != currentCategory) return@runOnUiThread
                 status[site] = result
                 displayResult(status, textView, category)
                 if (status.keys.size == category.items.size) playSuccessBeep()
             }
         }.start()
     }
+
+    private var currentCategory: Category? = null
 
     private fun displayResult(
         status: Map<SiteInfo, String>,
@@ -186,6 +189,7 @@ class MainActivity : Activity() {
 
     @SuppressLint("SetTextI18n")
     private fun ping(textView: TextView) {
+        currentCategory = null
         val editText = EditText(this)
         editText.setText("google.com")
         editText.layoutParams = LinearLayout.LayoutParams(
@@ -229,6 +233,7 @@ class MainActivity : Activity() {
 
                         val success = process.waitFor() == 0
 
+                        if (currentCategory != null) return@Thread
                         runOnUiThread {
                             if (success) {
                                 textView.append("Success\n")
@@ -252,6 +257,7 @@ class MainActivity : Activity() {
     }
 
     private fun testAll(textView: TextView, category: Category) {
+        currentCategory = category
         val status = HashMap<SiteInfo, String>()
         displayResult(status, textView, category)
         category.items.forEach { site -> testURL(status, textView, site, category) }
