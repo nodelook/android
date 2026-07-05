@@ -6,4 +6,5 @@
     <string name="welcome_message">به گره‌نما خوش‌آمدید\n\nرایانامه: nodelook@proton.me\nکد منبع: https://github.com/nodelook/android</string>
     <string name="success">موفقیت</string>
     <string name="failure">شکست</string>
+    <string name="version6">نگارش ۶</string>
 </resources>

@@ -208,7 +208,7 @@ class MainActivity : Activity() {
                 editText.setText("google.com")
             }
         }
-        ipv6CheckBox.text = "IPv6"
+        ipv6CheckBox.text = getString(R.string.version6)
         root.addView(ipv6CheckBox)
         root.setPadding(padding, 0, padding, 0)
         AlertDialog.Builder(this).setTitle(
