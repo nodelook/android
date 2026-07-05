@@ -139,31 +139,56 @@ class MainActivity : Activity() {
     fun playBeep(freq: Double, durationMs: Int) {
         val sampleRate = 44100
         val samples = sampleRate * durationMs / 1000
-
+    
         val buffer = ShortArray(samples)
-
-        buffer.indices.forEach { i ->
-            val angle = 2.0 * PI * i * freq / sampleRate
-            buffer[i] = (sin(angle) * Short.MAX_VALUE).toInt().toShort()
+    
+        for (i in buffer.indices) {
+            val angle = 2.0 * Math.PI * i * freq / sampleRate
+            buffer[i] = (kotlin.math.sin(angle) * Short.MAX_VALUE).toInt().toShort()
         }
-
-        val audioTrack = AudioTrack(
-            AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .build(),
-            AudioFormat.Builder()
-                .setSampleRate(sampleRate)
-                .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
-                .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
-                .build(),
-            buffer.size * 2,
-            AudioTrack.MODE_STATIC,
-            AudioManager.AUDIO_SESSION_ID_GENERATE
-        )
-
+    
+        val audioTrack =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                AudioTrack(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build(),
+                    AudioFormat.Builder()
+                        .setSampleRate(sampleRate)
+                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                        .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
+                        .build(),
+                    buffer.size * 2,
+                    AudioTrack.MODE_STATIC,
+                    AudioManager.AUDIO_SESSION_ID_GENERATE
+                )
+            } else {
+                AudioTrack(
+                    AudioManager.STREAM_MUSIC,
+                    sampleRate,
+                    AudioFormat.CHANNEL_OUT_MONO,
+                    AudioFormat.ENCODING_PCM_16BIT,
+                    buffer.size * 2,
+                    AudioTrack.MODE_STATIC
+                )
+            }
+    
+        if (audioTrack.state != AudioTrack.STATE_INITIALIZED) {
+            audioTrack.release()
+            return
+        }
+    
         audioTrack.write(buffer, 0, buffer.size)
         audioTrack.play()
+    
+        Thread {
+            try {
+                Thread.sleep(durationMs.toLong() + 100)
+            } finally {
+                audioTrack.release()
+            }
+        }.start()
     }
 
     private fun createStatusTextView(): TextView {
