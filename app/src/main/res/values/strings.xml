@@ -7,4 +7,5 @@
     <string name="success">SUCCESS</string>
     <string name="failure">FAILURE</string>
     <string name="version6">Version 6</string>
+    <string name="stop">Stop</string>
 </resources>

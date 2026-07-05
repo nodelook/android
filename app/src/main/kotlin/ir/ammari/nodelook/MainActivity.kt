@@ -97,8 +97,13 @@ class MainActivity : Activity() {
         scrollView.addView(textView)
         run {
             val buttonsBar = LinearLayout(this)
+            buttonsBar.addView( 
+                createButton(getString(R.string.stop), 0xFFEA4335.toInt()) {
+                    ping(textView)
+                },
+            )
             buttonsBar.addView(
-                createButton(getString(R.string.ping), 0xFFEA4335.toInt()) {
+                createButton(getString(R.string.ping), 0xFFFBBC05.toInt()) {
                     ping(textView)
                 },
             )
