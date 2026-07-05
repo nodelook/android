@@ -1,4 +1,4 @@
-<img src=".idea/icon.svg" width="100px" align="left">
+<img src=".idea/icon.svg" width="100px" align="right">
 
 ### گره‌نما
 
