@@ -1,6 +1,6 @@
 <img src=".idea/icon.svg" width="100px" align="left">
 
-### NodeLook
+### گره‌نما
 
 ![Version badge][Version badge]
 ![Build badge][Build badge]
@@ -20,8 +20,8 @@ NodeLook is a general website checker for users facing internet restrictions. It
 ## Screenshots
 <table>
   <tr>
-    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="NodeLook screenshot 1" width="100%"></td>
-    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="NodeLook screenshot 2" width="100%"></td>
+    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/fa-IR/images/phoneScreenshots/1.png" alt="نماگرفت ۱ گره‌نما" width="100%"></td>
+    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/fa-IR/images/phoneScreenshots/2.png" alt="نماگرفت ۲ گره‌نما" width="100%"></td>
   </tr>
 </table>
 
