@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## <a id="v1.4"></a>[v1.4] - 2026-07-06
+## <a id="v1.4.0"></a>[v1.4.0] - 2026-07-06
 
 Migrated to Kotlin, added IP version 6 ping support, and improved landscape mode
 
