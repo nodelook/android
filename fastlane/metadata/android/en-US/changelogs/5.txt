@@ -1,0 +1,1 @@
+Migrated to Kotlin, added IP version 6 ping support, and improved landscape mode

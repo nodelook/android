@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## <a id="v1.4"></a>[v1.4] - 2026-07-06
+
+Migrated to Kotlin, added IP version 6 ping support, and improved landscape mode
+
 ## <a id="v1.3"></a>[v1.3] - 2026-06-26
 
 Added Go Modules proxy support and customizable ping targets
