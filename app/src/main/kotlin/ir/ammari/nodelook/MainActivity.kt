@@ -100,7 +100,7 @@ class MainActivity : Activity() {
             val buttonsBar = LinearLayout(this)
             buttonsBar.addView( 
                 createButton(getString(R.string.stop), 0xFFEA4335.toInt()) {
-                    finishAffinity()
+                    System.exit(0)
                 },
             )
             buttonsBar.addView(
