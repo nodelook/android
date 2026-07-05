@@ -27,6 +27,7 @@ import java.net.URL
 import kotlin.math.PI
 import kotlin.math.roundToInt
 import kotlin.math.sin
+import kotlin.system.exitProcess
 
 class MainActivity : Activity() {
     private fun testURL(
@@ -99,7 +100,7 @@ class MainActivity : Activity() {
             val buttonsBar = LinearLayout(this)
             buttonsBar.addView( 
                 createButton(getString(R.string.stop), 0xFFEA4335.toInt()) {
-                    ping(textView)
+                    finishAffinity()
                 },
             )
             buttonsBar.addView(
