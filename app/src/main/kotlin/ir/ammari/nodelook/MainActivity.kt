@@ -38,7 +38,7 @@ class MainActivity : Activity() {
         Thread {
             val result = runCatching {
                 if (site.shouldContain in URL(site.url).readText()) "SUCCESS" else "FAILED"
-            }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { "ERROR" }
+            }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { "FAILED" }
             runOnUiThread {
                 if (category != currentCategory) return@runOnUiThread
                 status[site] = result
@@ -236,10 +236,10 @@ class MainActivity : Activity() {
                         if (currentCategory != null) return@Thread
                         runOnUiThread {
                             if (success) {
-                                textView.append("Success\n")
+                                textView.append(getString(R.string.ping) + ": " + getString(R.string.success) + "\n")
                                 playSuccessBeep()
                             } else {
-                                textView.append("Failed\n")
+                                textView.append(getString(R.string.ping) + ": " + getString(R.string.failure) + "\n")
                                 playErrorBeep()
                             }
                         }

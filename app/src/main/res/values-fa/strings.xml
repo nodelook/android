@@ -3,6 +3,7 @@
     <string name="app_name">گره‌نما</string>
     <string name="ping">پینگ</string>
     <string name="ping_dialog_title">یک دامنه وارد کنید</string>
-    <string name="welcome_message">به گره‌نما خوش‌آمدید\n\nرایانامه: nodelook@proton.me\nکد منبع:
-        https://github.com/nodelook/android</string>
+    <string name="welcome_message">به گره‌نما خوش‌آمدید\n\nرایانامه: nodelook@proton.me\nکد منبع: https://github.com/nodelook/android</string>
+    <string name="success">موفقیت</string>
+    <string name="failure">شکست</string>
 </resources>
