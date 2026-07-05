@@ -5,10 +5,8 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.content.res.Configuration
-import android.media.AudioAttributes
-import android.media.AudioFormat
 import android.media.AudioManager
-import android.media.AudioTrack
+import android.media.ToneGenerator
 import android.os.Build
 import android.os.Bundle
 import android.text.Spannable
@@ -25,8 +23,6 @@ import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.net.URL
 import kotlin.math.PI
 import kotlin.math.roundToInt
@@ -46,7 +42,7 @@ class MainActivity : Activity() {
             runOnUiThread {
                 status[site] = result
                 displayResult(status, textView, category)
-                if (status.keys.size == category.items.size) playBeep(1200.0, 100)
+                if (status.keys.size == category.items.size) playSuccessBeep()
             }
         }.start()
     }
@@ -136,58 +132,23 @@ class MainActivity : Activity() {
         setContentView(root)
     }
 
-    fun playBeep(freq: Double, durationMs: Int) {
-        val sampleRate = 44100
-        val samples = sampleRate * durationMs / 1000
-    
-        val buffer = ShortArray(samples)
-    
-        for (i in buffer.indices) {
-            val angle = 2.0 * Math.PI * i * freq / sampleRate
-            buffer[i] = (kotlin.math.sin(angle) * Short.MAX_VALUE).toInt().toShort()
-        }
-    
-        val audioTrack =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                AudioTrack(
-                    AudioAttributes.Builder()
-                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                        .build(),
-                    AudioFormat.Builder()
-                        .setSampleRate(sampleRate)
-                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
-                        .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
-                        .build(),
-                    buffer.size * 2,
-                    AudioTrack.MODE_STATIC,
-                    AudioManager.AUDIO_SESSION_ID_GENERATE
-                )
-            } else {
-                AudioTrack(
-                    AudioManager.STREAM_MUSIC,
-                    sampleRate,
-                    AudioFormat.CHANNEL_OUT_MONO,
-                    AudioFormat.ENCODING_PCM_16BIT,
-                    buffer.size * 2,
-                    AudioTrack.MODE_STATIC
-                )
-            }
-    
-        if (audioTrack.state != AudioTrack.STATE_INITIALIZED) {
-            audioTrack.release()
-            return
-        }
-    
-        audioTrack.write(buffer, 0, buffer.size)
-        audioTrack.play()
-    
+    fun playSuccessBeep() {
+        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+        tg.startTone(ToneGenerator.TONE_PROP_ACK, 150)
+
         Thread {
-            try {
-                Thread.sleep(durationMs.toLong() + 100)
-            } finally {
-                audioTrack.release()
-            }
+            Thread.sleep(200)
+            tg.release()
+        }.start()
+    }
+
+    fun playErrorBeep() {
+        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+        tg.startTone(ToneGenerator.TONE_PROP_NACK, 200)
+
+        Thread {
+            Thread.sleep(250)
+            tg.release()
         }.start()
     }
 
@@ -271,10 +232,10 @@ class MainActivity : Activity() {
                         runOnUiThread {
                             if (success) {
                                 textView.append("Success\n")
-                                playBeep(1200.0, 100)
+                                playSuccessBeep()
                             } else {
                                 textView.append("Failed\n")
-                                playBeep(400.0, 100)
+                                playErrorBeep()
                             }
                         }
 
