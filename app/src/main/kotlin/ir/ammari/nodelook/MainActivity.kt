@@ -137,7 +137,6 @@ class MainActivity : Activity() {
     }
 
     fun playBeep(freq: Double, durationMs: Int) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return
         val sampleRate = 44100
         val samples = sampleRate * durationMs / 1000
 
