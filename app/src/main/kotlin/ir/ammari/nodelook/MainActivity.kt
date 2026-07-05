@@ -228,24 +228,40 @@ class MainActivity : Activity() {
             textView.text = ""
             val domain = editText.getText().toString()
             Thread {
-                runCatching {
-                    val ping = if (ipv6CheckBox.isChecked) "ping6" else "ping"
-                    Runtime.getRuntime().exec(
-                        arrayOf(ping, "-c4", domain)
-                    ).inputStream.use { inputStream ->
-                        InputStreamReader(inputStream).use { inputStreamReader ->
-                            BufferedReader(inputStreamReader).use { bufferedReader ->
-                                generateSequence { bufferedReader.readLine() }.forEach { line ->
-                                    runOnUiThread {
-                                        textView.text = textView.getText().let {
-                                            if (it.isNotEmpty()) "$it\n$line" else line
-                                        }
-                                    }
-                                }
+                while (!Thread.currentThread().isInterrupted) {
+                    runCatching {
+                        val ping = if (ipv6CheckBox.isChecked) "ping6" else "ping"
+
+                        val process = ProcessBuilder(
+                            ping,
+                            "-c", "1",
+                            domain
+                        )
+                            .redirectErrorStream(true)
+                            .start()
+
+                        val output = process.inputStream.bufferedReader().readText()
+
+                        val success = process.waitFor() == 0
+
+                        runOnUiThread {
+                            if (success) {
+                                textView.append("Success\n")
+                                playBeep(1200.0, 100)
+                            } else {
+                                textView.append("Failed\n")
+                                playBeep(400.0, 100)
                             }
                         }
+
+                        Thread.sleep(1000)
+                    }.onFailure {
+                        runOnUiThread {
+                            Log.e("NodeLook", it.message, it)
+                        }
+                        break
                     }
-                }.onFailure { runOnUiThread { textView.text = it.message } }
+                }
             }.start()
         }.show()
     }
