@@ -142,6 +142,8 @@ class MainActivity : Activity() {
     }
 
     fun playBeep(success: Boolean) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ECLAIR) return
+
         val tone = if (success) {
             ToneGenerator.TONE_PROP_ACK
         } else {
@@ -151,14 +153,8 @@ class MainActivity : Activity() {
         val duration = 200
         val releaseDelay = 250L
 
-        val toneGenerator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-            ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
-        } else {
-            TODO("VERSION.SDK_INT < CUPCAKE")
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-            toneGenerator.startTone(tone, duration)
-        }
+        val toneGenerator = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+        toneGenerator.startTone(tone, duration)
 
         Thread {
             Thread.sleep(releaseDelay)
