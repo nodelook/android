@@ -24,9 +24,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import java.net.URL
-import kotlin.math.PI
 import kotlin.math.roundToInt
-import kotlin.math.sin
 import kotlin.system.exitProcess
 
 class MainActivity : Activity() {
@@ -100,7 +98,7 @@ class MainActivity : Activity() {
             val buttonsBar = LinearLayout(this)
             buttonsBar.addView( 
                 createButton(getString(R.string.stop), 0xFFEA4335.toInt()) {
-                    System.exit(0)
+                    exitProcess(0)
                 },
             )
             buttonsBar.addView(
@@ -142,22 +140,19 @@ class MainActivity : Activity() {
     }
 
     fun playBeep(success: Boolean) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ECLAIR) return
-
-        val tone = if (success) {
-            ToneGenerator.TONE_PROP_ACK
-        } else {
-            ToneGenerator.TONE_PROP_NACK
+        val streamType = when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE -> AudioManager.STREAM_NOTIFICATION
+            else -> AudioManager.STREAM_SYSTEM
+        }
+        val toneGenerator = ToneGenerator(streamType, 100)
+        val toneType = if (success) ToneGenerator.TONE_PROP_ACK else ToneGenerator.TONE_PROP_NACK
+        when {
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.ECLAIR -> toneGenerator.startTone(toneType)
+            else -> toneGenerator.startTone(toneType, 200)
         }
 
-        val duration = 200
-        val releaseDelay = 250L
-
-        val toneGenerator = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
-        toneGenerator.startTone(tone, duration)
-
         Thread {
-            Thread.sleep(releaseDelay)
+            Thread.sleep(250L)
             toneGenerator.release()
         }.start()
     }
@@ -235,8 +230,6 @@ class MainActivity : Activity() {
                         )
                             .redirectErrorStream(true)
                             .start()
-
-                        val output = process.inputStream.bufferedReader().readText()
 
                         val success = process.waitFor() == 0
 
