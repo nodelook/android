@@ -44,7 +44,7 @@ class MainActivity : Activity() {
                 if (category != currentCategory) return@runOnUiThread
                 status[site] = result
                 displayResult(status, textView, category)
-                if (status.keys.size == category.items.size) playSuccessBeep()
+                if (status.keys.size == category.items.size) playBeep(true)
             }
         }.start()
     }
@@ -141,23 +141,28 @@ class MainActivity : Activity() {
         setContentView(root)
     }
 
-    fun playSuccessBeep() {
-        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
-        tg.startTone(ToneGenerator.TONE_PROP_ACK, 150)
+    fun playBeep(success: Boolean) {
+        val tone = if (success) {
+            ToneGenerator.TONE_PROP_ACK
+        } else {
+            ToneGenerator.TONE_PROP_NACK
+        }
+
+        val duration = 200
+        val releaseDelay = 250L
+
+        val toneGenerator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+            ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+        } else {
+            TODO("VERSION.SDK_INT < CUPCAKE")
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+            toneGenerator.startTone(tone, duration)
+        }
 
         Thread {
-            Thread.sleep(200)
-            tg.release()
-        }.start()
-    }
-
-    fun playErrorBeep() {
-        val tg = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
-        tg.startTone(ToneGenerator.TONE_PROP_NACK, 200)
-
-        Thread {
-            Thread.sleep(250)
-            tg.release()
+            Thread.sleep(releaseDelay)
+            toneGenerator.release()
         }.start()
     }
 
@@ -243,10 +248,10 @@ class MainActivity : Activity() {
                         runOnUiThread {
                             if (success) {
                                 textView.append(getString(R.string.ping) + ": " + getString(R.string.success) + "\n")
-                                playSuccessBeep()
+                                playBeep(true)
                             } else {
                                 textView.append(getString(R.string.ping) + ": " + getString(R.string.failure) + "\n")
-                                playErrorBeep()
+                                playBeep(false)
                             }
                         }
 
