@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <item name="result" type="id" />
-
-    <style name="Theme" parent="android:Theme.NoTitleBar" />
+    <style name="Theme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowBackground">@color/dynamic_icon_background</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/dynamic_icon_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">@drawable/ic_launcher_splash</item>
+    </style>
 </resources>

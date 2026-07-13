@@ -201,6 +201,7 @@ class MainActivity : Activity() {
         currentCategory = pingCategory
         val editText = EditText(this)
         editText.setText("google.com")
+        editText.isSingleLine = true
         editText.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
