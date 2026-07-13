@@ -18,7 +18,7 @@ NodeLook is a general website checker for users facing internet restrictions. It
 ### Messengers
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="TELEGRAM CHANNEL V1.4.0"></a> [Download Platform](https://telegram.org/dl/android/apk)  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/BALE_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="BALE CHANNEL V1.4.0"></a> [Download Platform](https://bale.ai/apk/bale.apk)  
-<a href="https://eitaa.com/nodelook"><img src="https://img.shields.io/badge/EITAA_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="EITAA CHANNEL V1.4.0"></a> [Download Platform](https://eitaa.com/)  
+<a href="https://eitaa.com/nodelook"><img src="https://img.shields.io/badge/EITAA_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="EITAA CHANNEL V1.4.0"></a> [Download Platform](https://eitaa.com/apk)  
 ### Nightly
 <a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB_ACTIONS-NIGHTLY-32A304?style=for-the-badge&logo=android" alt="GITHUB ACTIONS NIGHTLY"></a>
 ## Screenshots
