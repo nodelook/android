@@ -25,7 +25,6 @@ import android.widget.ScrollView
 import android.widget.TextView
 import java.net.URL
 import kotlin.math.roundToInt
-import kotlin.system.exitProcess
 
 class MainActivity : Activity() {
     private fun testURL(
@@ -98,7 +97,7 @@ class MainActivity : Activity() {
             val buttonsBar = LinearLayout(this)
             buttonsBar.addView( 
                 createButton(getString(R.string.stop), 0xFFEA4335.toInt()) {
-                    exitProcess(0)
+                    stopTest(textView)
                 },
             )
             buttonsBar.addView(
@@ -190,8 +189,16 @@ class MainActivity : Activity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun ping(textView: TextView) {
+    private fun stopTest(textView: TextView) {
         currentCategory = null
+        textView.text = getString(R.string.stop_message)
+        playBeep(false)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun ping(textView: TextView) {
+        val pingCategory = Category("Ping","Ping",0, emptyList())
+        currentCategory = pingCategory
         val editText = EditText(this)
         editText.setText("google.com")
         editText.layoutParams = LinearLayout.LayoutParams(
@@ -233,7 +240,7 @@ class MainActivity : Activity() {
 
                         val success = process.waitFor() == 0
 
-                        if (currentCategory != null) return@Thread
+                        if (currentCategory == null) return@Thread
                         runOnUiThread {
                             if (success) {
                                 textView.append(getString(R.string.ping) + ": " + getString(R.string.success) + "\n")

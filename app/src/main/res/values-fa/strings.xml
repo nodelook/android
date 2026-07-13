@@ -8,4 +8,5 @@
     <string name="failure">شکست</string>
     <string name="version6">نگارش ۶</string>
     <string name="stop">توقف</string>
+    <string name="stop_message">تست توسط کاربر متوقف شد.</string>
 </resources>
