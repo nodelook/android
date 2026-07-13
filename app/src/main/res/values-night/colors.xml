@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dynamic_icon_foreground">#B6C6EE</color>
+    <color name="dynamic_icon_background">#293041</color>
+</resources>
