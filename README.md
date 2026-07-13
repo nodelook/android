@@ -14,11 +14,10 @@ NodeLook is a general website checker for users facing internet restrictions. It
 <a href="http://odd-m.w0.am/?ir.ammari.nodelook"><img src="https://img.shields.io/badge/ODD--MARKET-V1.4.0-32A304?style=for-the-badge&logo=android" alt="ODD-MARKET V1.4.0"></a> [Download Platform](https://orchis.w0.am/com.oddmarket/upload.apk)  
 <a href="https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/IZZY--ON--DROID-V1.4.0-32A304?style=for-the-badge&logo=android" alt="IZZY-ON-DROID V1.4.0"></a> [Download Platform](https://apt.izzysoft.de/fdroid/index/apk/in.sunilpaulmathew.izzyondroid)  
 <a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/OBTAINIUM-V1.4.0-32A304?style=for-the-badge&logo=android" alt="OBTAINIUM V1.4.0"></a> [Download Platform](https://obtainium.imranr.dev/)  
+<a href="https://www.pgyer.com/apk/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/PGYER-V1.4.0-32A304?style=for-the-badge&logo=android" alt="PGYER V1.4.0"></a> [Download Platform](https://www.pgyer.com/apk/apk/com.pgyer.apkhub/download)  
 ### Messengers
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="TELEGRAM CHANNEL V1.4.0"></a> [Download Platform](https://telegram.org/dl/android/apk)  
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/BALE_CHANNEL-V1.4.0-32A304?style=for-the-badge&logo=android" alt="BALE CHANNEL V1.4.0"></a> [Download Platform](https://bale.ai/apk/bale.apk)  
-### Other
-<a href="https://www.pgyer.com/apk/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/PGYER-V1.4.0-32A304?style=for-the-badge&logo=android" alt="PGYER V1.4.0"></a>  
 ### Nightly
 <a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB_ACTIONS-NIGHTLY-32A304?style=for-the-badge&logo=android" alt="GITHUB ACTIONS NIGHTLY"></a>
 ## Screenshots
