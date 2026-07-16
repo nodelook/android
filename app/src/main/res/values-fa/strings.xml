@@ -8,5 +8,8 @@
     <string name="failure">شکست</string>
     <string name="version6">نگارش ۶</string>
     <string name="stop">توقف</string>
-    <string name="stop_message">تست توسط کاربر متوقف شد.</string>
+    <string name="stop_message">بررسی توسط کاربر متوقف شد.</string>
+    <string name="power">برق</string>
+    <string name="connected">وصل</string>
+    <string name="disconnected">قطع</string>
 </resources>

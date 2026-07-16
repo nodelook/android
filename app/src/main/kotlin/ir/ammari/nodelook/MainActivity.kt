@@ -3,6 +3,8 @@ package ir.ammari.nodelook
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
+import android.content.IntentFilter
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.media.AudioManager
@@ -105,6 +107,11 @@ class MainActivity : Activity() {
                     ping(textView)
                 },
             )
+            buttonsBar.addView(
+                createButton(getString(R.string.power), 0xFFFBBC05.toInt()) {
+                    power(textView)
+                },
+            )
             categories.map { category ->
                 createButton(category.title, category.color) { testAll(textView, category) }
             }.forEach(buttonsBar::addView)
@@ -193,6 +200,38 @@ class MainActivity : Activity() {
         currentCategory = null
         textView.text = getString(R.string.stop_message)
         playBeep(false)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun power(textView: TextView) {
+        val powerCategory = Category("Power","Power",0, emptyList())
+        currentCategory = powerCategory
+        textView.text = ""
+        Thread {
+            while (!Thread.currentThread().isInterrupted) {
+                runCatching {
+                    val intent = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+                    val plugged = intent?.getIntExtra("plugged", 0) ?: 0
+                    if (currentCategory == null) return@Thread
+                    runOnUiThread {
+                        if (plugged != 0) {
+                            textView.append(getString(R.string.power) + ": " + getString(R.string.connected) + "\n")
+                            playBeep(true)
+                        } else {
+                            textView.append(getString(R.string.power) + ": " + getString(R.string.disconnected) + "\n")
+                            playBeep(false)
+                        }
+                    }
+                    Thread.sleep(1000)
+                }.onFailure {
+                    runOnUiThread {
+                        Log.e("NodeLook", it.message, it)
+                    }
+                    break
+                }
+            }
+        }.start()
+
     }
 
     @SuppressLint("SetTextI18n")
