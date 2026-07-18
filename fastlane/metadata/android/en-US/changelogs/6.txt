@@ -1,0 +1,1 @@
+Android TV support, power status detection, updated test endpoints, improved test cancellation, and bug fixes for older Android versions
