@@ -105,16 +105,16 @@ class MainActivity : Activity() {
             buttonsBar.addView(
                 createButton(getString(R.string.ping), 0xFFFBBC05.toInt()) {
                     ping(textView)
-                },
+                }
             )
+            categories.map { category ->
+                createButton(category.title, category.color) { testAll(textView, category) }
+            }.forEach(buttonsBar::addView)
             buttonsBar.addView(
                 createButton(getString(R.string.power), 0xFFFBBC05.toInt()) {
                     power(textView)
                 },
             )
-            categories.map { category ->
-                createButton(category.title, category.color) { testAll(textView, category) }
-            }.forEach(buttonsBar::addView)
             val padding = 4.dp
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 scrollView.setPadding(padding, 0, padding, 0)
