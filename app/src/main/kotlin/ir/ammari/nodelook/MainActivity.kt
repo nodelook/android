@@ -73,10 +73,10 @@ class MainActivity : Activity() {
             }
             text.append("\n")
             run {
-                val url = site.url
+                val address = site.address
                 val color = ForegroundColorSpan(0xFF4285F4.toInt())
-                val spannable = SpannableString(url)
-                spannable.setSpan(color, 0, url.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                val spannable = SpannableString(address)
+                spannable.setSpan(color, 0, address.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 text.append(spannable)
             }
             text.append("\n")
