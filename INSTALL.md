@@ -12,6 +12,7 @@
 
 ## Websites
 https://www.androidhit.de/en/app/nodelook-ir-ammari-nodelook-2
+https://github.com/nodelook/android/releases
 
 ## Messengers
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-V1.5.0-32A304?style=for-the-badge&logo=android" alt="TELEGRAM CHANNEL V1.5.0"></a> [Download Platform](https://telegram.org/dl/android/apk)  
