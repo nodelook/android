@@ -7,11 +7,13 @@
 
 NodeLook is a general website checker for users facing internet restrictions. It helps users determine whether a service is accessible through their current connection, or whether it is filtered or unavailable.
 
-# Get it on
-## Official App Stores
+## Get it on
+### Official App Stores
 <a href="https://f-droid.org/en/packages/ir.ammari.nodelook"><img src="https://img.shields.io/badge/F--DROID-V1.5.0-32A304?style=for-the-badge&logo=android" alt="F-DROID V1.5.0"></a> [Download Platform](https://f-droid.org/F-Droid.apk)  
 <a href="https://appteka.store/search?q=ir.ammari.nodelook"><img src="https://img.shields.io/badge/APPTEKA-V1.5.0-32A304?style=for-the-badge&logo=android" alt="APPTEKA V1.5.0"></a> [Download Platform](https://appteka.store/search?q=com.tomclaw.appsend)  
 <a href="https://www.pgyer.com/apk/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/PGYER-V1.5.0-32A304?style=for-the-badge&logo=android" alt="PGYER V1.5.0"></a> [Download Platform](https://www.pgyer.com/apk/apk/com.pgyer.apkhub/downloading)  
+
+[More sources](INSTALL.md)
 
 ## Screenshots
 <table>
