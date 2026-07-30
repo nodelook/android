@@ -11,8 +11,8 @@
 <a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/OBTAINIUM_(FROM_GITHUB)-V1.5.0-32A304?style=for-the-badge&logo=android" alt="OBTAINIUM (FROM GITHUB) V1.5.0"></a> [Download Platform](https://obtainium.imranr.dev/) 
 
 ## Websites
-https://www.androidhit.de/en/app/nodelook-ir-ammari-nodelook-2
-https://github.com/nodelook/android/releases
+- https://www.androidhit.de/en/app/nodelook-ir-ammari-nodelook-2
+- https://github.com/nodelook/android/releases
 
 ## Messengers
 <a href="https://t.me/nodelook"><img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-V1.5.0-32A304?style=for-the-badge&logo=android" alt="TELEGRAM CHANNEL V1.5.0"></a> [Download Platform](https://telegram.org/dl/android/apk)  
