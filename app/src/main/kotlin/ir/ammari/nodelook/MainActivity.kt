@@ -25,7 +25,12 @@ import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
 import kotlin.math.roundToInt
 
 class MainActivity : Activity() {
@@ -214,11 +219,12 @@ class MainActivity : Activity() {
                     val plugged = intent?.getIntExtra("plugged", 0) ?: 0
                     if (currentCategory == null) return@Thread
                     runOnUiThread {
+                        val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(Date())
                         if (plugged != 0) {
-                            textView.append(getString(R.string.power) + ": " + getString(R.string.connected) + "\n")
+                            textView.append("[$date]: ${getString(R.string.connected)}\n")
                             playBeep(true)
                         } else {
-                            textView.append(getString(R.string.power) + ": " + getString(R.string.disconnected) + "\n")
+                            textView.append("[$date]: ${getString(R.string.disconnected)}\n")
                             playBeep(false)
                         }
                     }
@@ -282,11 +288,12 @@ class MainActivity : Activity() {
 
                         if (currentCategory == null) return@Thread
                         runOnUiThread {
+                            val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(Date())
                             if (success) {
-                                textView.append(getString(R.string.ping) + ": " + getString(R.string.success) + "\n")
+                                textView.append("[$date]: ${getString(R.string.success)}\n")
                                 playBeep(true)
                             } else {
-                                textView.append(getString(R.string.ping) + ": " + getString(R.string.failure) + "\n")
+                                textView.append("[$date]: ${getString(R.string.failure)}\n")
                                 playBeep(false)
                             }
                         }
