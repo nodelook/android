@@ -20,4 +20,4 @@
 <a href="https://ble.ir/nodelook"><img src="https://img.shields.io/badge/BALE_CHANNEL-V1.5.0-32A304?style=for-the-badge&logo=android" alt="BALE CHANNEL V1.5.0"></a> [Download Platform](https://bale.ai/apk/bale.apk)  
 <a href="https://eitaa.com/nodelook"><img src="https://img.shields.io/badge/EITAA_CHANNEL-V1.5.0-32A304?style=for-the-badge&logo=android" alt="EITAA CHANNEL V1.5.0"></a> [Download Platform](https://eitaa.com/app/apk)  
 ## Nightly
-<a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB_ACTIONS-NIGHTLY-32A304?style=for-the-badge&logo=android" alt="GITHUB ACTIONS NIGHTLY"></a>
+<a href="https://github.com/nodelook/android/actions"><img src="https://img.shields.io/badge/GITHUB_ACTIONS-NIGHTLY-32A304?style=for-the-badge&logo=android" alt="GITHUB ACTIONS NIGHTLY"></a> [Download Latest Build](https://nightly.link/nodelook/android/workflows/upload-apk/main/NodeLook.zip)
