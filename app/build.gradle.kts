@@ -112,7 +112,7 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 url = "$url",
                 shouldContain = "$shouldContain",
                 address = "$address",
-                invertMatch = "$invertMatch",
+                invertMatch = $invertMatch,
             ),"""
             } + "\n        ),\n    ),"
         }
