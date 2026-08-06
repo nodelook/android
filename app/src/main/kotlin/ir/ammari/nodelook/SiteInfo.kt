@@ -5,4 +5,5 @@ data class SiteInfo(
     val url: String,
     val shouldContain: String,
     val address: String,
+    val invertMatch: String
 )

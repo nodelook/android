@@ -106,11 +106,13 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 val url = item["url"] as String
                 val shouldContain = item["shouldContain"] as String
                 val address = item["address"] as String
+                val invertMatch = item["invertMatch"] as String                
                 """            SiteInfo(
                 name = "$name",
                 url = "$url",
                 shouldContain = "$shouldContain",
                 address = "$address",
+                invertMatch = "$invertMatch",
             ),"""
             } + "\n        ),\n    ),"
         }
