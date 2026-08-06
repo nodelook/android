@@ -105,6 +105,7 @@ val generateAppSrcTask = tasks.register("generateAppSrcTask") {
                 println("Adding $name")
                 val url = item["url"] as String
                 val shouldContain = item["shouldContain"] as String
+                shouldContain = ${"$$$\"\"\""}$shouldContain${"\"\"\""},
                 val address = item["address"] as String
                 """            SiteInfo(
                 name = "$name",
