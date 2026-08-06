@@ -6,6 +6,7 @@
     <string name="welcome_message">Welcome to NodeLook\n\nEmail: nodelook@proton.me\nSource Code: https://github.com/nodelook/android</string>
     <string name="success">SUCCESS</string>
     <string name="failure">FAILURE</string>
+    <string name="error">ERROR</string>
     <string name="version6">Version 6</string>
     <string name="stop">Stop</string>
     <string name="stop_message">Testing was stopped by the user.</string>

@@ -42,8 +42,8 @@ class MainActivity : Activity() {
     ) {
         Thread {
             val result = runCatching {
-                if ((site.shouldContain in URL(site.url).readText()) != site.invertMatch) "SUCCESS" else "FAILED"
-            }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { "FAILED" }
+                if ((site.shouldContain in URL(site.url).readText()) != site.invertMatch) getString(R.string.success) else getString(R.string.failure)
+            }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { getString(R.string.error) }
             runOnUiThread {
                 if (category != currentCategory) return@runOnUiThread
                 status[site] = result
