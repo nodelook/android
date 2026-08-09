@@ -9,7 +9,7 @@
 ## Android App Stores
 <a href="http://odd-m.w0.am/?ir.ammari.nodelook"><img src="https://img.shields.io/badge/ODD--MARKET-V1.5.0-32A304?style=for-the-badge&logo=android" alt="ODD-MARKET V1.5.0"></a> [Download Platform](https://orchis.w0.am/com.oddmarket/upload.apk)  
 <a href="https://apt.izzysoft.de/fdroid/index/apk/ir.ammari.nodelook"><img src="https://img.shields.io/badge/IZZY--ON--DROID-V1.5.0-32A304?style=for-the-badge&logo=android" alt="IZZY-ON-DROID V1.5.0"></a> [Download Platform](https://apt.izzysoft.de/fdroid/index/apk/in.sunilpaulmathew.izzyondroid)  
-<a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/nodelook/android/releases"><img src="https://img.shields.io/badge/OBTAINIUM_(FROM_GITHUB)-V1.5.0-32A304?style=for-the-badge&logo=android" alt="OBTAINIUM (FROM GITHUB) V1.5.0"></a> [Download Platform](https://obtainium.imranr.dev/) 
+<a href="https://apps.obtainium.imranr.dev/apps?categoryMode=inclusive&sort=popular&q=NodeLook"><img src="https://img.shields.io/badge/OBTAINIUM_(FROM_GITHUB)-V1.5.0-32A304?style=for-the-badge&logo=android" alt="OBTAINIUM (FROM GITHUB) V1.5.0"></a> [Download Platform](https://obtainium.imranr.dev/) 
 
 ## Websites
 - https://www.androidhit.de/en/app/nodelook-ir-ammari-nodelook-2
