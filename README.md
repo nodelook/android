@@ -9,13 +9,20 @@ NodeLook is a general website checker for users facing internet restrictions. It
 
 - [Installation](INSTALL.md)
 
-## Screenshots
+## 📸 Screenshots
+
+<div align="center">
 <table>
   <tr>
-    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="NodeLook screenshot 1" width="100%"></td>
-    <td width="20%" align="center"><img src="https://raw.githubusercontent.com/nodelook/android/refs/heads/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="NodeLook screenshot 2" width="100%"></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="NodeLook Light Theme Screenshot" width="400"/></td>
+    <td><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="NodeLook Dark Theme Screenshot" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Light Theme</em></td>
+    <td align="center"><em>Dark Theme</em></td>
   </tr>
 </table>
+</div>
 
 ## Credits
 - [Bouncy](https://github.com/ebraminio/bouncy)
