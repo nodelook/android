@@ -25,6 +25,7 @@ import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import java.net.HttpURLConnection
 
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -42,9 +43,39 @@ class MainActivity : Activity() {
     ) {
         Thread {
             val result = runCatching {
-                if ((site.shouldContain in URL(site.url).readText()) != site.invertMatch) getString(R.string.success) else getString(R.string.failure)
-            }.onFailure { Log.e("NodeLook", site.toString(), it) }.getOrElse { getString(R.string.error) }
+                val connection = URL(site.url).openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                connection.connectTimeout = 10000
+                connection.readTimeout = 10000
+
+                val content = if (connection.responseCode >= 400) {
+                    connection.errorStream?.bufferedReader()?.readText().orEmpty()
+                } else {
+                    connection.inputStream.bufferedReader().readText()
+                }
+
+                connection.disconnect()
+
+                if ((site.shouldContain in content) != site.invertMatch) {
+                    getString(R.string.success)
+                } else {
+                    getString(R.string.failure)
+                }
+            }.onFailure {
+                Log.e("NodeLook", site.toString(), it)
+            }.getOrElse {
+                getString(R.string.error)
+            }
+
             runOnUiThread {
+                if (result != getString(R.string.success)) {
+                    AlertDialog.Builder(this)
+                        .setTitle(site.name)
+                        .setMessage("Content")
+                        .setPositiveButton("OK", null)
+                        .show()
+                }
+
                 if (category != currentCategory) return@runOnUiThread
                 status[site] = result
                 displayResult(status, textView, category)
